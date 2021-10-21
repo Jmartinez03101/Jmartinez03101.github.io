@@ -5,8 +5,8 @@
     let 
         opspark = window.opspark,
         animations = {},
-        spawnX = 30,
-        spawnY = 600;
+        spawnX = 0,
+        spawnY = 100;
         
     opspark.createPlayer = function (game) {
         let 
@@ -137,7 +137,7 @@
                 asset.y += yOffset;
             };
             state.exit = function() {
-                asset.body.bounce.y = 0.4;
+                asset.body.bounce.y = 0;
                 asset.x -= xOffset * _direction;
                 asset.y -= yOffset;
             };
@@ -223,7 +223,7 @@
             
             asset.body.offset.x += 10 * _direction;
             asset.body.offset.y -= 30;
-            asset.body.y -= 22;
+            asset.body.y -= 52;
             let onUpdate = function (anim, frame) {
                 console.log(frame.index);
                 if (frame.index < 52) {
