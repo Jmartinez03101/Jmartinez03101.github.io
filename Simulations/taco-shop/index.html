@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Taco Shop</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            #menu, #take-order {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #take-order > p {
+                padding-right: 10px;
+            }
+
+            .menu-item {
+                border: 3px solid gray;
+            }
+
+            .menu-item > h4,
+            .menu-item > img {
+                padding: 10px;
+                padding-bottom: 5px;
+            }
+
+            img {
+                width: 250px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="all-contents">
+            <nav>
+                <h1>Taco Shop</h1>
+                <div id="take-order">
+                    <p>When you're ready to place your order, click here: </p>
+                    <button>Place Order</button>
+                </div>
+            </nav>
+            <main>
+                <h3>Menu</h3>
+                <div id="menu">
+                    <div id="three-tacos" class="menu-item">
+                        <h4> #1 - Three Tacos</h4>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG-phbs_RqH7HoN_2XLKiTXd0zTOeMGLncug&usqp=CAU">
+                        <h4>6.99</h4>
+                    </div>
+                    <div id="five-tacos" class="menu-item">
+                        <h4>#2 - Five Tacos</h4>
+                        <img src="https://i2.wp.com/thesuburbansoapbox.com/wp-content/uploads/2021/02/Birria-Tacos-8.jpg">
+                        <h4>9.99</h4>
+                    </div>
+                    <div id="three-tacos" class="menu-item">
+                        <h4> #3 - Chick Fil A's Chicken Sandwitch</h4>
+                        <img src= "https://i.ytimg.com/vi/w2WDFEzJJnI/maxresdefault.jpg">
+                        <h4>4.69</h4>
+                    </div>
+                    <div id="three-tacos" class="menu-item">
+                        <h4> #4 - Doge burber</h4>
+                        <img src="https://i.pinimg.com/originals/9d/be/ee/9dbeee55fd391ee0488bdae50fc2a72c.jpg">
+                        <h4>6.09</h4>
+                    </div>
+                    <div id="three-tacos" class="menu-item">
+                        <h4> #5 - Raccoon food</h4>
+                        <img src="data:image/jpeg;base64,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">
+                        <h4>4.20</h4>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script>
+            $('button').on('click', foodOrder);
+            function foodOrder(){
+                // console.log('burber');
+                var total = 0;
+                var whatYouWant = prompt('What would you like today from taco doge raccoon stand? Two orders max.');
+                if (whatYouWant === '1'){
+                    total += 6.99;
+                }
+                else if (whatYouWant === '2'){
+                    total += 9.99;
+                }
+                else if (whatYouWant === '3'){
+                    total += 4.69;
+                }
+                else if (whatYouWant === '4'){
+                    total += 6.09;
+                }
+                else if (whatYouWant === '5'){
+                    total += 4.20;
+                }
+                else{
+                    alert('Not a choice idiot.')
+                }
+                var yesOrNo = prompt('Want anything else stoopid?');
+                if (yesOrNo === 'no'){
+                    alert('Thanks for wasting your money, your total is ' + total + ' stoopid.')
+                }
+                else if (yesOrNo === 'yes'){
+                    var whatYouWant = prompt('What else want indiot?');
+                    if (whatYouWant === '1'){
+                    total += 6.99;
+                }
+                else if (whatYouWant === '2'){
+                    total += 9.99;
+                }
+                else if (whatYouWant === '3'){
+                    total += 4.69;
+                }
+                else if (whatYouWant === '4'){
+                    total += 6.09;
+                }
+                else if (whatYouWant === '5'){
+                    total += 4.20;
+                }
+                else{
+                    alert('Not a choice idiot.')
+                }
+                }
+                else {
+                    alert('Yes or no stoooopid.');
+                }
+                alert('Thanks for wasting your money, your total is ' + total + ' stoopid.')
+            }
+        </script>
+    </body>
+</html>
