@@ -28,11 +28,17 @@ var init = function (window) {
             physikz.addRandomVelocity(circle, canvas, 10, 10);
             view.addChild(circle);
             circles.push(circle);
+            
+         
         }
-
-        // TODO 3 / 8 : Call the drawCircle() function 
+        
+        // TODO 3 / 8 : Call the drawCircle() function
+        // function circleNumber(){ 
+        var circlesNumber = prompt('How many circles you want???');
+        // if (circlesNumber === 
+        // }
         var loopsCompleted = 0; 
- while (loopsCompleted < 100) {
+ while (loopsCompleted < circlesNumber) {
  	// do something
  	loopsCompleted++
      drawCircle();
