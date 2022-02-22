@@ -2,6 +2,7 @@
 <html lang="en">
 
 <!--NOT VISIBLE TO THE USER-->
+
 <head>
 
     <meta charset="UTF-8">
@@ -9,39 +10,69 @@
     <link rel="icon" type="image/png" href="favicon.ico">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./javascript/brains.js"></script>
+    <style>
+        .brand-font {
+            text-align: center;
+        }
+
+        img {
+            width: 300px;
+            border:5px solid red;
+            border-radius: 100px;
+        }
+
+        .caption {
+            margin-bottom: 70px;
+        }
+        .pic-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    body{
+        background-color: black;
+        color: white;
+        font-family: Comic Sans MS;
+    }
+    </style>
 
 </head>
 
 <!--VISIBLE TO THE USER-->
+
 <body>
 
-    <h1>Catsagram</h1>
-    <h5>"Sharing the World's cats"</h5>
-    <!--Cat Photo 1-->
-    <img src="https://i.kym-cdn.com/photos/images/facebook/000/581/251/5af.jpg">
-    <div id="likeCount1"></div>
-    <button id="likeBtn">Like</button> 
-    <p>Cat Doge</p>
-    <!--Cat Photo 2-->
-    <img src="https://c.tenor.com/14kAeUwtoJoAAAAC/pop-cat.gif">
-    <div id="likeCount1"></div>
-    <button id="likeBtn">Like</button> 
-    <p>Pop Cat</p>
-    <!--Cat Photo 3-->
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBAQEBAQDw8PDw8QDw8PDw8PDw8PFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OFxAQGi0dHR0tLS0tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS03LS0tNy0rLSsrKystK//AABEIAOEA4QMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAADAAECBAUGBwj/xAA0EAACAQMDAgUDAgUEAwAAAAAAAQIDBBEFEiExQQYTFFFhInGBMpEWQlJioQfB8PEVQ9H/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBP/EABwRAQEBAQEBAQEBAAAAAAAAAAABEQIhMRJBA//aAAwDAQACEQMRAD8A0FEfBa9Mx/Ss48dOqqEWvSv2F6Z+wspK+BYLatmP6Vj+QKeBbS56Rjq0DQp7B9pfdp8CjaMfoUNo2w0vRsXo37BdDNUR9po+jfsL0b9iQzto+DTVn8C9IGDWaoicDT9GL0n3K/Jazdg2w1VZklZDGsjb8D7DX9EhvSCkFrJ2D7H7Gt6UXpR5BrI8t+wthr+lF6UrBrI8v4EqRr+m+B1bICjI8oRsemQgP9J+SheUvYKJgNBdNexBOPwB1S6UI/c5ypfvOU2KjHWJxHUTlaGqyXXk1LLWIvClx8ilPGxsHcERpV0+jyFKINLoOl8Esj5HInagh2SyLgPzD1AkkPkcMhaQ2BxCwGwMOVry4UEOeAWVVIfzjHjcb3kuKfA56qcrLuEEjPJlTbyXbOXBAsWhDCHIk4hCHoIYcQ4VIQhB4W0hmOMyFRznimWEjm1UOh8Vx4XscxFC1ryuRY7T7A4MtUcPqFUNpurTpvD/AE/PY6u0u4zWU+px1W3TBUbudKXD4ysonfU2O+x8j7TDs9dg0s8fBpwv6b6SRcsqLytbRYK1W9pxWXJFCvrcF+nMvbA/1E/mtdYXclHl4MCncVarwos39LsKiac+F7DlFGVBiqUGlk1IwQRwQycrd3agm3nj4Obu791Gei1bKDzmKeTDvPD9LOYpRz1x3IurjB0/oaUpEJ2HldOhWq1uR83GkiUqnJbsp8mbuyX7Dr+Qtg6njTQ4w4WsSEIQ4RCEIDIQhD2FhDM5B+NqH9wOXjuivcjVZWv4lp5gvg5Hoaq8QwuspRf3ZSr0WhNOYB5hOnWwVnIdMm1bUpVdyK13SfUjbSaLVV5RJ2MaVRoLTrVX0bC06P1Z9iyoi9KxG2hObxJyf5Ot0jRM4lLhGTYyhTW6XZZK+o+N0s06HH976JmnPLOvRba2p0+mEw6rJ9zxz/yt3WqJUp1Jybz9Gdp6T4ZtK6gncvnsu/5NIzrdjILGQNxSRl39w0niWMZ57FbhTmtlyRXqwT/7RwWoX9dfUqy/BlS164Tx5jJtac8tfxDoV5OcpQqTceyi+EjjK9S7t5vf5mE8JyX0v8nQWviStGSbk2s+53um3dG5px3xhLPVNJ8kr9jhNNv1Uin0fdG9Yvg6aek2r6UYL7LBQudJUMypvjvF84+ws0t2MHU9djbz2yT5SeUCp+KqHeSRfuLeFR/XFPtyZt14foP/ANaz7oVliMXI+IKDWd8f3JR16g3jzI/uYNTwvRfKTX5IrwxS92H7H5dE9bo/1x/cFLX6C/nRiLw1T93+7Jx8N0u+X+4/0Ma/8Q0P61/kRlfw5S/pYhfo/wAwKPhih/SgsPDtBfyJnQKkT8onRKxqOkU4/pjj7DXFjhG15YKv0Hpy+uKvLZxbKyidXc2SqPPcyL7TnDnsKytYqU6iQenUUjPnBsLawaHfh2eLk2kiNLLeF1K1Sr/g0NCW+afVJoEas1NCr3MHCOY56vp+C3pP+m9KLzWlvw8qK6P7nW2LUYc8BKt6orOTSM70Vjp9C3io06cY474GvNQhBP6lldjK1PWFhNcc44OV1DU9z+fdjGNy98RTzhPBh3mr7suU2/hP/YzNtSp9i5b6M31WQ+jVGpqnsm8/co173+xnW09A46f4Gq6Bx0DD/bhJ6ptfMGjQ0vxS6bW1uPw+ho6hoaSbawl1ZyGo0qabSfK4JP8AWvVtJ8Yxklu+O51NvqcJxTXfsfO9tdTptNPMTs9F114WJBpY9C1JJPdEhQqb0ZFPVfNjy0EsbnbL4fDAsakqKBOmXFyQlEm8lqr5bHVMNgiPJD1DYImIkLDiQfBPIzDEhNga0coPKIKUSf6cUujBalHMH7hr7hZOau9dw9j6pmm+Nub4rVVhk3LgjUuIzWf/AIU692lkKdqpfV+dq79TofC0Wu/tycnRe+fPdna6TFRgvsQydFO+wsdjPuNReGslOvXM+5q8PHVIuCRU1nW40urzJ9EYVLVasnuUcrrxzgDfaZc1JOexyT4WFnH4RTdCtTbjicWuGkmMO08M6vTqTVOpiMuz7N+x6Da2awmjxTT7C4lJOEZuWePpefuezeEvMlRiqqxJJJ57cFxm2Le2ROpaJ9iwlgfzEGk4nx7aOFpUlFPjHKPHrzZJZXXufR97Rp1acqc0nGSaaZ5Pqf8ApxVdSTt2tjbe2Xb8k2KlcLbU88B6NSVKXB3Vp4CnSjmpJN46JPj8nPa/pflt4Qo0lWNNv+jOhtbnccJplbDwzp7CryvYVOu60643RXxwWmzD0Wt1j78/k20K1nUWgbQdoi4k6QQifliDAmLIhhXQcWBCGArmmnF5PMvEFttrSkvk9OrdDi/FVtw5JdMhevFRyvqmu5UuLpvuVqs8MrSk5ce7SKk8P10ei0stSOup1MROe0ejiMU+vc2qssInBArm4wZkb5TntxwmK/qNJmVpTbqfku+Len+HrZbUzo6drS6unBt9W4o4uxuHGKw2srnDNGhqGOsn++RS+s3W0qNNcqEV9kkWVFY4wcvHXohYa8maaluV5OKb+Gctd+JVCTTeOWaL1iLWGYeqW9vUUm1FS5eU2LarnkT+J0/k39Cu3Vi54xHs/c8y4jPrxn/B1NHxDCnBRj7LjOORau8OyuMSXQ4XxVYRkm8EaviabylJJP5M+71acly8j1OVxNS22TePf/c3NPn0KV9LMs8clqwXRkdX066rR5fWv+dzpkctoz+tHUICp8kciyRJqcSyIiIWjEtwzmB3juQZ4YqqCcwLZFtlFgs2Yeu22+nLjPDNbLB1obk17ozqv48Z1Gnsk0AtH9S+5u+LdPdKo/bqmc5QqbZGvPwnb2FdPBpVXlGFoz3YZu1AXyy7+DaZnaW9s/yb9SCaMWpS2Tftkd9U6anX4AVbp5KVG44DQeScLBPUsb1LE4oFJDSK7x+7AVL5kZQBypFRUBqVmDdVljyReShLtApKWSzUlx+B4QSQC4qBqcUq6yzRsYdCrbwyzToRxgml1G5o/wCtf89jqEc7otL+b9jfiuCdZkxCHAGEOINgVxZHwMVoIQzETaEsZFtHiORvp65jxjpnm0m1+qKbR5l6fEsP3we1ahFOLWM8HB6hpi8zOMPuaTRhaTS2xXua2MlS3p4wuhdghyKiMoFS5t8r5NHaBqwKPWM8rhlijUJ16BWcWmFVI0IyyNIqwqsJ5oviLEhA3UEqgfqj1ORCQ0qqBVKw9OaVSpwVJcseU8sJTpsJ6uTBLengv2yy8AIRwa+kWu6WfbkXUiO66DT6OIIuJgoLCJxRORmmMmPIG2AEEC3iFgScRtooskLfQjtGHkRK0HHiMgkERedCpqDwvnBz9ank2795Mmoi54uVVjTwwm0lgiOdeHpEZkiMh/rwgZor16RakiLQfpTNlAg0aE4pgZ0hr2KEmwbmy5OgQdEzo8VHJjJNlryiUaaQYNiFGkGFGeCUIlo66WLeGWjrdPtlCK98cmHo9q5STOoisLAqzt8MSRESI0hMD7RsjxFNBvLESyOMvQB0xYHwH0zodQQyQhyBPYNVeEPTAX9TCwVsKM65nkoyRZqgZBfVwCSI4CyRHBIDaISDtEGgNWGkFcSEkKHAZMFuDTiAaNDhpSAykFcSGwWGE2JLITYSjEJKhGMCxShyiMYlijHkvwsb2jRwjVM7SnwaSZFTYdIfAykM5EJOJEN4vMLOVPIiHmCAzbh9xHaLaRp4luEmRSCwiPaViUCjevlmjUjiOTJuJZZWeelFVkJhWgUxVcobGwOJkj+oNEGEZBlBCSINBGRKxQM4ApQLOQUhywwXAG0WSEoBkSBtHSJNCHfgPFB6QKMQsEZ5hRuabLg0kzK018mttGXUNkTJKBLYSQDGDOIPaVEzUcjEtqEPFDbRbQu0WCZIWhqBZoUSMIZNK2o4XJfMGs3UOFgxKrNnWJdfuYc2Lo4ZkGh2xjM4HJEZBWDmi5JDDwNgngZi/oCkQYWSIYK+gCaBliQGSIkugxFksDNF24A2hYJ4Fgzl0RKCCpAohIyNNDRsHyjoKL4OZtJcm/Q6InqlVvBGYPzMElLIeJxBsgw0okMBzTD/AAIJwMVoG3DoApFigssnEr1nS7luTwmQorCFWlwayEwtVlyzHmaeq9WZbMu56swzHIsmxREWiQggDZHASSIMYRkgbCSBsPgDkCzyGkgTiXMBNEWiSYzYu4dRIjtjJi4Hw5NEUSQWUly06r7m/Q6I5+16m/Q6BlKiyREfI5GEkpknDIJkoywEgN5bET3iHg0GHUvWnUQi+S6akQdXoxCNkRz+q9WZYhGX+n1rCIsQib8MhCEHIMyDEIc+p/qDBsQhdKNIGxCAIsgxCC/REWQ7iEPj6qiRJIQiqFy06/k36XQcQ78RUiQhGH9JFiYhBz9TfhCEIsn/2Q==">
-    <div id="likeCount1"></div>
-    <button id="likeBtn">Like</button>
-    <p>pop cat popped cat</p> 
-    <!--Cat Photo 4-->
-    <img src="https://i1.sndcdn.com/avatars-BlAgRjFCvvB8L4PH-FcqrcQ-t500x500.jpg">
-    <div id="likeCount1"></div>
-    <button id="likeBtn">Like</button> 
-    <p>stoned cat</p>
-    <!--Cat Photo 5-->
-    <img src="https://i.kym-cdn.com/entries/icons/original/000/032/100/cover4.jpg">
-    <div id="likeCount1"></div>
-    <button id="likeBtn">Like</button>
-    <p>loading cat</p> 
+    <h1 class="brand-font">Catsagram</h1>
+    <h5 class="brand-font">"Sharing the World's cats"</h5>
+    <!-- PICTURE CONTAINER -->
+    <div class="pic-container">
+        <!--Cat Photo 1-->
+        <img src="https://i.kym-cdn.com/photos/images/facebook/000/581/251/5af.jpg">
+        <div id="likeCount1"></div>
+        <button id="likeBtn">Like</button>
+        <p class='caption'>Cat Doge</p>
+        <!--Cat Photo 2-->
+        <img src="https://c.tenor.com/14kAeUwtoJoAAAAC/pop-cat.gif">
+        <div id="likeCount1"></div>
+        <button id="likeBtn">Like</button>
+        <p class='caption'>Pop Cat</p>
+        <!--Cat Photo 3-->
+        <img
+            src="data:image/jpeg;base64,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">
+        <div id="likeCount1"></div>
+        <button id="likeBtn">Like</button>
+        <p class='caption'>pop cat popped cat</p>
+        <!--Cat Photo 4-->
+        <img src="https://i1.sndcdn.com/avatars-BlAgRjFCvvB8L4PH-FcqrcQ-t500x500.jpg">
+        <div id="likeCount1"></div>
+        <button id="likeBtn">Like</button>
+        <p class='caption'>stoned cat</p>
+        <!--Cat Photo 5-->
+        <img src="https://i.kym-cdn.com/entries/icons/original/000/032/100/cover4.jpg">
+        <div id="likeCount1"></div>
+        <button id="likeBtn">Like</button>
+        <p class='caption'>loading cat</p>
+    </div>
 </body>
 
 </html>
