@@ -54,21 +54,56 @@ var level01 = function (window) {
             dogeHitZone.addChild(obstacleImage);
             obstacleImage.x = -25;
             obstacleImage.y = -25;
-            git
         }
         createDoge(1600, 325);
 
-        var enemy = game.createGameItem('enemy', 25);
-        var redSquare = draw.rect(50, 50, 'red');
-        redSquare.x = -25;
-        redSquare.y = -25;
-        enemy.addchild(redSquare);
-        enemy.x = 400;
-        enemy.y = groundY- 50;
-        
-        game.addGameItem(enemy);
 
-  
+        function createEnemy(x, y) {
+            var enemy = game.createGameItem('enemy', 25);
+            var redSquare = draw.bitmap('img/buffdoge.png');
+            redSquare.x = -25;
+            redSquare.y = -25;
+            enemy.addChild(redSquare);
+            enemy.x = x;
+            enemy.y = y;
+            enemy.velocityX = -1;
+            enemy.rotationalVelocity = 10;
+            game.addGameItem(enemy);
+
+
+            enemy.onPlayerCollision = function () {
+                console.log('The enemy has hit Halle');
+                game.changeIntegrity(-10);
+            };
+            enemy.onProjectileCollision = function () {
+                console.log('Halle has hit the enemy');
+                game.increaseScore(0.0001);
+                enemy.shrink();
+
+            }
+        }
+        createEnemy(400, groundY - 50);
+        createEnemy(800, groundY - 100);
+        createEnemy(1200, groundY - 50);
+        function reward(x,y){
+            var reward = game.createGameItem('reward',25);
+            var dogeCoin = draw.bitmap('img/dogeCoin.png');
+            dogeCoin.x = -25;
+            dogeCoin.y = -25;
+            reward.addChild(dogeCoin);
+            reward.x = x;
+            reward.y = y;
+            reward.velocityX = -1;
+            reward.rotationalVelocity = 10;
+            game.addGameItem(reward);
+            reward.onPlayerCollision = function () {
+                console.log('got da reward');
+                reward.shrink();
+                game.changeIntegrity(0.5);
+            };
+        }
+        reward(500, groundY - 50);
+
         // DO NOT EDIT CODE BELOW HERE
     }
 };
