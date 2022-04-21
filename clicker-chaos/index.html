@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>LOAF Clicker</h1>
+    <!-- <div class="top-box"> -->
+    <div class="main-box">
+        <div class="upgrade-box">
+            <div class="upgrade" id="upgrade1">
+                <p>Bitcoin farm</p>
+                <p id="bitCoin-count">Owned: 0</p>
+                <p id="bitCoin-cost">Cost:200</p>
+                <button class="button" id="purchase-bitCoin">BITCOIN YES</button>
+            </div>
+            <div class="upgrade" id="upgrade1">
+                <p>Gaming Mouse </p>
+                <p id="gamingMouse-count">Owned: 0</p>
+                <p id="gamingMouse-cost">Cost:300</p>
+                <button class="button" id="purchase-gamingMouse"> gaming mousee</button>
+            </div>
+            <div class="upgrade" id="upgrade1">
+                <p>Gaming Chair </p>
+                <p id="gamingChair-count">Owned: 0</p>
+                <p id="gamingChair-cost">Cost:400</p>
+                <button class="button" id="purchase-gamingChair"> gaming chaire</button>
+            </div>
+            <div class="upgrade" id="upgrade1">
+                <p>Gaming Air </p>
+                <p id="gamingAir-count">Owned: 0</p>
+                <p id="gamingAir-cost">Cost:500</p>
+                <button class="button" id="purchase-gamingAir"> gaming aire</button>
+            </div>
+        </div>
+        <div class="clicker-box">
+            <img id='clicker-image' src="https://c.tenor.com/rx7OgOfkgP4AAAAC/doge-dog.gif">
+            <p id='loaf-amount'>LOAF: 0 loafe</p>
+            <p id="loafPerSecond">LOAF per second: 0 loafe</p>
+        </div>
+        <div class="autoclicker-box">
+            <div class="autoclicker" id="autoclicker1" title="One byte of loaf per second">
+                <p>Loafer</p>
+                <p id="microSD-count">Owned: 0</p>
+                <p id="microSD-cost">Cost: 50</p>
+                <button id="purchase-microSD" class="button">BUY ONE</button>
+                <!-- w3schools button styling below: -->
+                <!-- https://www.w3schools.com/css/css3_buttons.asp -->
+            </div>
+            <div class='autoclicker' id="autoclicker2">
+                <p>DogeCoin</p>
+                <p id="dogeCoin-count">Owned: 0</p>
+                <p id="dogeCoin-cost">Cost: 100</p>
+                <button class="button" id='purchase-dogeCoin'>Buy Please</button>
+                <!-- <!-- </div> -->
+            </div>
+            <div class='autoclicker' id='autoclicker3'>
+                <p>Elon Muske</p>
+                <p id="elonMuske-count">Owned: 0</p>
+                <p id="elonMuske-cost">Cost: 200</p>
+                <button class="button" id="purchase-elonMuske">BUY NOW</button>
+            </div>
+            <div class='autoclicker' id='autoclicker3'>
+                <p>Doge Cat</p>
+                <p id="dogeCat-count">Owned: 0</p>
+                <p id="dogeCat-cost">Cost: 400</p>
+                <button class="button" id="purchase-dogeCat">BUY NOW</button>
+            </div>
+        </div>
+
+        <!-- <div class="credits">
+
+            </div> -->
+        <!-- </div> -->
+        <script>
+            // Variables
+            loaf = 0;
+            loafPerSecond = 0;
+            var microSD = {
+                rps: 0.5, // each net helps us catch one butterfly per second
+                numberOwned: 0, // we don't have any nets at the beginning of the game
+                basePrice: 50, // the first one costs 50
+            };
+            // amp = how much the upgrade is amplifying how many loaf you get per second
+            var bitCoin = {
+                amp: 1.25,
+                numberOwned: 0,
+                basePrice: 200,
+            }
+            var dogeCoin = {
+                rps: 1,
+                numberOwned: 0,
+                basePrice: 100,
+            }
+            var elonMuske = {
+                rps: 2,
+                numberOwned: 0,
+                basePrice: 200,
+            }
+            var dogeCat = {
+                rps: 4,
+                numberOwned: 0,
+                basePrice: 400,
+            }
+            var gamingMouse={
+                amp: 1.50,
+                numberOwned:0,
+                basePrice:300,
+            }
+            var gamingChair={
+                amp: 1.75,
+                numberOwned:0,
+                basePrice:400,
+            }
+            var gamingAir={
+                amp: 2,
+                numberOwned:0,
+                basePrice:500,
+            }
+            // Core Functionality
+            $("#clicker-image").on("click", downloadLOAF);
+            setInterval(addAutoLoaf, 1000);
+
+
+            // Event/Click Listeners
+            $("#purchase-microSD").on('click', purchaseMicroSD);
+            $("#purchase-bitCoin").on('click', purchasebitCoin);
+            $('#purchase-dogeCoin').on('click', purchasedogeCoin);
+            $('#purchase-elonMuske').on('click', purchaseelonMuske);
+            $('#purchase-dogeCat').on('click', purchasedogeCat);
+            $('#purchase-gamingMouse').on('click', purchasegamingMouse);
+            $('#purchase-gamingChair').on('click', purchasegamingChair);
+            $('#purchase-gamingAir').on('click', purchasegamingAir);
+
+            // Functions
+            function downloadLOAF() {
+                loaf = loaf + 1;
+                console.log(loaf);
+                $("#loaf-amount").text("LOAF: " + loaf + " loafe");
+
+            }
+            function purchasegamingAir() {
+                var cost = Math.ceil(gamingAir.basePrice * Math.pow(1.1, gamingAir.numberOwned));
+                // increase the new cost by 10%
+                if (loaf >= cost) {
+                    loaf = loaf - cost;
+
+                    loafPerSecond = loafPerSecond * 1.25;
+                    $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
+                    gamingAir.numberOwned = gamingAir.numberOwned + 1;
+                    $('#gamingAir-count').text("Owned: " + gamingAir.numberOwned);
+                    var newCost = Math.ceil(gamingAir.basePrice * Math.pow(1.1, gamingAir.numberOwned));
+                    $('#gamingAir-cost').text("Cost: " + newCost);
+                }
+            }
+            function purchasegamingChair() {
+                var cost = Math.ceil(gamingChair.basePrice * Math.pow(1.1, gamingChair.numberOwned));
+                // increase the new cost by 10%
+                if (loaf >= cost) {
+                    loaf = loaf - cost;
+
+                    loafPerSecond = loafPerSecond * 1.25;
+                    $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
+                    gamingChair.numberOwned = gamingChair.numberOwned + 1;
+                    $('#gamingChair-count').text("Owned: " + gamingChair.numberOwned);
+                    var newCost = Math.ceil(gamingChair.basePrice * Math.pow(1.1, gamingChair.numberOwned));
+                    $('#gamingChair-cost').text("Cost: " + newCost);
+                }
+            }
+            function purchasegamingMouse() {
+                var cost = Math.ceil(gamingMouse.basePrice * Math.pow(1.1, gamingMouse.numberOwned));
+                // increase the new cost by 10%
+                if (loaf >= cost) {
+                    loaf = loaf - cost;
+
+                    loafPerSecond = loafPerSecond * 1.25;
+                    $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
+                    gamingMouse.numberOwned = gamingMouse.numberOwned + 1;
+                    $('#gamingMouse-count').text("Owned: " + gamingMouse.numberOwned);
+                    var newCost = Math.ceil(gamingMouse.basePrice * Math.pow(1.1, gamingMouse.numberOwned));
+                    $('#gamingMouse-cost').text("Cost: " + newCost);
+                }
+            }
+            function purchasedogeCat() {
+                var cost = Math.ceil(dogeCat.basePrice * Math.pow(1.1, dogeCat.numberOwned));
+                if (loaf >= cost) {
+                    loaf = loaf - cost;
+
+                    loafPerSecond = loafPerSecond + dogeCat.rps;
+                    $('#loafPerSecond').text("LOAF per second " + loafPerSecond + " loafe")
+                    dogeCat.numberOwned = dogeCat.numberOwned + 1;
+                    $("#dogeCat-count").text("Owned: " + dogeCat.numberOwned);
+                    var newCost = Math.ceil(dogeCat.basePrice * Math.pow(1.1, dogeCat.numberOwned));
+                    $('#dogeCat-cost').text('Cost: ' + newCost);
+                }
+            }
+            // function purchasebitCoin() {
+            //     var cost = Math.ceil(bitCoin.basePrice * Math.pow(1.1, bitCoin.numberOwned));
+            //     // increase the new cost by 10%
+            //     if (loaf >= cost) {
+            //         loaf = loaf - cost;
+
+            //         loafPerSecond = loafPerSecond * 1.25;
+            //         $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
+            //         bitCoin.numberOwned = bitCoin.numberOwned + 1;
+            //         $('#bitCoin-count').text("Owned: " + bitCoin.numberOwned);
+            //         var newCost = Math.ceil(bitCoin.basePrice * Math.pow(1.1, bitCoin.numberOwned));
+            //         $('#bitCoin-cost').text("Cost: " + newCost);
+            //     }
+            // }
+            function purchaseelonMuske() {
+                var cost = Math.ceil(elonMuske.basePrice * Math.pow(1.1, elonMuske.numberOwned));
+                if (loaf >= cost) {
+                    loaf = loaf - cost;
+
+                    loafPerSecond = loafPerSecond + elonMuske.rps;
+                    $('#loafPerSecond').text("LOAF per second " + loafPerSecond + " loafe")
+                    elonMuske.numberOwned = elonMuske.numberOwned + 1;
+                    $("#elonMuske-count").text("Owned: " + elonMuske.numberOwned);
+                    var newCost = Math.ceil(elonMuske.basePrice * Math.pow(1.1, elonMuske.numberOwned));
+                    $('#elonMuske-cost').text('Cost: ' + newCost);
+                }
+            }
+            function purchasebitCoin() {
+                var cost = Math.ceil(bitCoin.basePrice * Math.pow(1.1, bitCoin.numberOwned));
+                // increase the new cost by 10%
+                if (loaf >= cost) {
+                    loaf = loaf - cost;
+
+                    loafPerSecond = loafPerSecond * 1.25;
+                    $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
+                    bitCoin.numberOwned = bitCoin.numberOwned + 1;
+                    $('#bitCoin-count').text("Owned: " + bitCoin.numberOwned);
+                    var newCost = Math.ceil(bitCoin.basePrice * Math.pow(1.1, bitCoin.numberOwned));
+                    $('#bitCoin-cost').text("Cost: " + newCost);
+                }
+            }
+            function purchasedogeCoin() {
+                var cost = Math.ceil(dogeCoin.basePrice * Math.pow(1.1, dogeCoin.numberOwned));
+                if (loaf >= cost) {
+                    loaf = loaf - cost;
+
+                    loafPerSecond = loafPerSecond + dogeCoin.rps;
+                    $('#loafPerSecond').text("LOAF per second " + loafPerSecond + " loafe")
+                    dogeCoin.numberOwned = dogeCoin.numberOwned + 1;
+                    $("#dogeCoin-count").text("Owned: " + dogeCoin.numberOwned);
+                    var newCost = Math.ceil(dogeCoin.basePrice * Math.pow(1.1, dogeCoin.numberOwned));
+                    $('#dogeCoin-cost').text('Cost: ' + newCost);
+                }
+            }
+            function purchaseMicroSD() {
+
+                /*
+                    To calculate the cost, you'll have to do some math. Clicker games typically make you advance slower
+                    if you just stick with purchasing one item to encourage you to get deeper and deeper into the game. 
+                    The math behind this involves exponential growth. You'll use the Math.pow() function to help calculate the cost.
+                */
+                var cost = Math.ceil(microSD.basePrice * Math.pow(1.1, microSD.numberOwned));
+                // The number 1.1 means that each microSD will be 10% more expensive than the previous one.
+                // You'll want to tinker with this number to make sure it gives you the gameplay experience you want (it should probably be greater than 1 and less than 2)
+                // In this example, the first will cost 50, the second 55, and the 50th will cost around 5500.
+
+                if (loaf >= cost) {
+                    // write a line of code that decreases the loaf by the cost
+                    loaf = loaf - cost;
+                    // write a second line of code that increases the loafPerSecond variable by microSD's rps value
+                    loafPerSecond = loafPerSecond + microSD.rps;
+                    $("#loafPerSecond").text("LOAF per second: " + loafPerSecond + " loafe");
+                    // write another line that increases the microSD variable's numberOwned property by one
+                    microSD.numberOwned = microSD.numberOwned + 1;
+                    // Add code that updates the text of the div that you're working on. Here's an example of updating the number owned text:
+                    $("#microSD-count").text("Owned: " + microSD.numberOwned); // Update the text based on the updated numberOwned property
+
+                    // Now we'll calculate the cost of the next microsd
+                    var newCost = Math.ceil(microSD.basePrice * Math.pow(1.1, microSD.numberOwned));
+                    $('#microSD-cost').text("Cost: " + newCost);
+                }
+            }
+            setInterval(addAutoLoaf, 1000);
+
+            function addAutoLoaf() {
+                /*
+                    Write a line of code that increases the loaf variable by the value stored in the loafPerSecond variable
+                    
+                    If you chose a number different than 1000 above for your setInterval timer, you'll have to divide the loafPerSecond value before adding it to the loaf.
+                    For example, if you chose 250, update the loaf variable by adding one fourth of the loafPerSecond value.
+                */
+                loaf = loaf + loafPerSecond;
+                // update the text that displays the loaf available
+                $("#loaf-amount").text("loaf: " + Math.floor(loaf) + " loafe");
+            }
+            /* All code above here */
+        </script>
+</body>
+
+</html>
