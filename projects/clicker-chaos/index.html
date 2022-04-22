@@ -14,25 +14,25 @@
             <div class="upgrade" id="upgrade1">
                 <p>Bitcoin farm</p>
                 <p id="bitCoin-count">Owned: 0</p>
-                <p id="bitCoin-cost">Cost:200</p>
+                <p id="bitCoin-cost">Cost:400</p>
                 <button class="button" id="purchase-bitCoin">BITCOIN YES</button>
             </div>
             <div class="upgrade" id="upgrade1">
                 <p>Gaming Mouse </p>
                 <p id="gamingMouse-count">Owned: 0</p>
-                <p id="gamingMouse-cost">Cost:300</p>
+                <p id="gamingMouse-cost">Cost:600</p>
                 <button class="button" id="purchase-gamingMouse"> gaming mousee</button>
             </div>
             <div class="upgrade" id="upgrade1">
                 <p>Gaming Chair </p>
                 <p id="gamingChair-count">Owned: 0</p>
-                <p id="gamingChair-cost">Cost:400</p>
+                <p id="gamingChair-cost">Cost:800</p>
                 <button class="button" id="purchase-gamingChair"> gaming chaire</button>
             </div>
             <div class="upgrade" id="upgrade1">
                 <p>Gaming Air </p>
                 <p id="gamingAir-count">Owned: 0</p>
-                <p id="gamingAir-cost">Cost:500</p>
+                <p id="gamingAir-cost">Cost:1000</p>
                 <button class="button" id="purchase-gamingAir"> gaming aire</button>
             </div>
         </div>
@@ -40,6 +40,7 @@
             <img id='clicker-image' src="https://c.tenor.com/rx7OgOfkgP4AAAAC/doge-dog.gif">
             <p id='loaf-amount'>LOAF: 0 loafe</p>
             <p id="loafPerSecond">LOAF per second: 0 loafe</p>
+            <button id="purchase-ownDoge" class="button1">Your Own Doge, but for everything</button>
         </div>
         <div class="autoclicker-box">
             <div class="autoclicker" id="autoclicker1" title="One byte of loaf per second">
@@ -77,7 +78,7 @@
         <!-- </div> -->
         <script>
             // Variables
-            loaf = 0;
+            loaf = 999995;
             loafPerSecond = 0;
             var microSD = {
                 rps: 0.5, // each net helps us catch one butterfly per second
@@ -88,7 +89,7 @@
             var bitCoin = {
                 amp: 1.25,
                 numberOwned: 0,
-                basePrice: 200,
+                basePrice: 400,
             }
             var dogeCoin = {
                 rps: 1,
@@ -108,17 +109,21 @@
             var gamingMouse={
                 amp: 1.50,
                 numberOwned:0,
-                basePrice:300,
+                basePrice:600,
             }
             var gamingChair={
                 amp: 1.75,
                 numberOwned:0,
-                basePrice:400,
+                basePrice:800,
             }
             var gamingAir={
                 amp: 2,
                 numberOwned:0,
-                basePrice:500,
+                basePrice:1000,
+            }
+            var ownDoge={
+                numberOwned:0,
+                basePrice: loaf,
             }
             // Core Functionality
             $("#clicker-image").on("click", downloadLOAF);
@@ -134,14 +139,28 @@
             $('#purchase-gamingMouse').on('click', purchasegamingMouse);
             $('#purchase-gamingChair').on('click', purchasegamingChair);
             $('#purchase-gamingAir').on('click', purchasegamingAir);
+            $('#purchase-ownDoge').on('click', purchaseownDoge);
+
 
             // Functions
+            
             function downloadLOAF() {
                 loaf = loaf + 1;
                 console.log(loaf);
                 $("#loaf-amount").text("LOAF: " + loaf + " loafe");
 
             }
+            function purchaseownDoge(){
+                var cost=loaf;
+                if (loaf >= cost) {
+                    loaf = loaf - cost;
+                    loafPerSecond=0;
+                    $('#loafownDoge').text("LOAF per second: " + loafPerSecond + " loafe");
+                }
+
+            }
+            
+            
             function purchasegamingAir() {
                 var cost = Math.ceil(gamingAir.basePrice * Math.pow(1.1, gamingAir.numberOwned));
                 // increase the new cost by 10%
