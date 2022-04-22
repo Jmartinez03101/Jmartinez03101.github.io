@@ -41,6 +41,7 @@
             <p id='loaf-amount'>LOAF: 0 loafe</p>
             <p id="loafPerSecond">LOAF per second: 0 loafe</p>
             <button id="purchase-ownDoge" class="button1">Your Own Doge, but for everything</button>
+            <p class="owned1"id="doge-count">Owned: 0</p>
         </div>
         <div class="autoclicker-box">
             <div class="autoclicker" id="autoclicker1" title="One byte of loaf per second">
@@ -78,7 +79,7 @@
         <!-- </div> -->
         <script>
             // Variables
-            loaf = 999995;
+            loaf = 1499999;
             loafPerSecond = 0;
             var microSD = {
                 rps: 0.5, // each net helps us catch one butterfly per second
@@ -128,6 +129,7 @@
             // Core Functionality
             $("#clicker-image").on("click", downloadLOAF);
             setInterval(addAutoLoaf, 1000);
+            setInterval(giveUp,1000);
 
 
             // Event/Click Listeners
@@ -150,12 +152,24 @@
                 $("#loaf-amount").text("LOAF: " + loaf + " loafe");
 
             }
+            function giveUp(){
+                if (loaf===1500000){
+                    alert('Okay you are done idiot');
+                    console.log(lul);
+                }
+            }
             function purchaseownDoge(){
                 var cost=loaf;
-                if (loaf >= cost) {
+                if (loaf===0){
+
+                }
+                else if (loaf >= cost) {
                     loaf = loaf - cost;
                     loafPerSecond=0;
-                    $('#loafownDoge').text("LOAF per second: " + loafPerSecond + " loafe");
+                    $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
+                    ownDoge.numberOwned= ownDoge.numberOwned +1;
+                    $('#doge-count').text("Owned: " + ownDoge.numberOwned);
+
                 }
 
             }
