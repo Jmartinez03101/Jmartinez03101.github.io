@@ -95,7 +95,7 @@
                 basePrice: 50, // the first one costs 50
             };
             var clicks = {
-                 rps : 1,
+                 rps : 0,
                  numberOwned:0,
                  basePrice:100,
              }
@@ -200,7 +200,7 @@
             
             
             function purchasegamingAir() {
-                 clicks = clicks + 1;
+        
                 var cost = Math.ceil(gamingAir.basePrice * Math.pow(1.1, gamingAir.numberOwned));
                 // increase the new cost by 10%
                 if (loaf >= cost) {
