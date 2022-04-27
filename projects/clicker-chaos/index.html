@@ -11,6 +11,12 @@
     <!-- <div class="top-box"> -->
     <div class="main-box">
         <div class="upgrade-box">
+            <div class="upgrade" id="upgrade1"title="increases loafes on click">
+                <p>Gaming clicker </p>
+                <p id="gamingClicker-count">Owned: 0</p>
+                <p id="gamingClicker-cost">Cost:100</p>
+                <button class="button" id="purchase-clickers"> gaming Clicker</button>
+            </div>
             <div class="upgrade" id="upgrade1"title="loaf per second by 1.25">
                 <p>Bitcoin farm</p>
                 <p id="bitCoin-count">Owned: 0</p>
@@ -35,6 +41,7 @@
                 <p id="gamingAir-cost">Cost:1000</p>
                 <button class="button" id="purchase-gamingAir"> gaming aire</button>
             </div>
+            
         </div>
         <div class="clicker-box">
             <img id='clicker-image' src="https://c.tenor.com/rx7OgOfkgP4AAAAC/doge-dog.gif">
@@ -79,6 +86,7 @@
         <!-- </div> -->
         <script>
             // Variables
+            
             loaf = 0;
             loafPerSecond = 0;
             var microSD = {
@@ -86,6 +94,11 @@
                 numberOwned: 0, // we don't have any nets at the beginning of the game
                 basePrice: 50, // the first one costs 50
             };
+            var clicks = {
+                 rps : 1,
+                 numberOwned:0,
+                 basePrice:100,
+             }
             // amp = how much the upgrade is amplifying how many loaf you get per second
             var bitCoin = {
                 amp: 1.25,
@@ -142,40 +155,52 @@
             $('#purchase-gamingChair').on('click', purchasegamingChair);
             $('#purchase-gamingAir').on('click', purchasegamingAir);
             $('#purchase-ownDoge').on('click', purchaseownDoge);
+            $('#purchase-clickers').on('click', purchasegamingClicker);
 
 
             // Functions
             
             function downloadLOAF() {
-                loaf = loaf + 1;
+                loaf = loaf + 1 + clicks.rps;
                 console.log(loaf);
                 $("#loaf-amount").text("LOAF: " + loaf + " loafe");
 
             }
             function giveUp(){
-                if (loaf>=1500000){
+                if (loaf===1500000){
                     alert('Okay you are done idiot');
                     console.log(lul);
                 }
             }
+            function purchasegamingClicker(){
+                var cost = Math.ceil(clicks.basePrice * Math.pow(1.1, clicks.numberOwned));
+
+              if (loaf >= cost){
+                  loaf = loaf - cost;
+                  clicks.rps = clicks.rps + 1;
+                  clicks.numberOwned = clicks.numberOwned + 1;
+                    $('#gamingClicker-count').text("Owned: " + clicks.numberOwned);
+                    var newCost = Math.ceil(clicks.basePrice * Math.pow(1.1, clicks.numberOwned));
+                    $('#gamingClicker-cost').text("Cost: " + newCost);
+              }
+            }
             function purchaseownDoge(){
                 var cost=loaf;
                 if (loaf===0){
-
                 }
                 else if (loaf >= cost) {
                     loaf = loaf - cost;
                     loafPerSecond=0;
                     $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
                     ownDoge.numberOwned= ownDoge.numberOwned +1;
-                    $('#doge-count').text("Owned: " + ownDoge.numberOwned);
-
+                    $('#doge-count').text("Owned: " + ownDoge.numberOwned);  
                 }
 
             }
             
             
             function purchasegamingAir() {
+                 clicks = clicks + 1;
                 var cost = Math.ceil(gamingAir.basePrice * Math.pow(1.1, gamingAir.numberOwned));
                 // increase the new cost by 10%
                 if (loaf >= cost) {
