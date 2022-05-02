@@ -8,47 +8,50 @@
 
 <body>
     <h1>LOAF Clicker</h1>
+    <button class="button" id="save-game">Save</button>
+    <button class="button" id="load-game">Load</button>
     <!-- <div class="top-box"> -->
     <div class="main-box">
         <div class="upgrade-box">
-            <div class="upgrade" id="upgrade1"title="increases loafes on click">
+            <div class="upgrade" id="upgrade1" title="increases loafes on click">
                 <p>Gaming clicker </p>
                 <p id="gamingClicker-count">Owned: 0</p>
                 <p id="gamingClicker-cost">Cost:100</p>
                 <button class="button" id="purchase-clickers"> gaming Clicker</button>
             </div>
-            <div class="upgrade" id="upgrade1"title="loaf per second by 1.25">
+            <div class="upgrade" id="upgrade1" title="loaf per second by 1.25">
                 <p>Bitcoin farm</p>
                 <p id="bitCoin-count">Owned: 0</p>
                 <p id="bitCoin-cost">Cost:400</p>
                 <button class="button" id="purchase-bitCoin">BITCOIN YES</button>
             </div>
-            <div class="upgrade" id="upgrade1"title="loafes a second by 1.5">
+            <div class="upgrade" id="upgrade1" title="loafes a second by 1.5">
                 <p>Gaming Mouse </p>
                 <p id="gamingMouse-count">Owned: 0</p>
                 <p id="gamingMouse-cost">Cost:600</p>
                 <button class="button" id="purchase-gamingMouse"> gaming mousee</button>
             </div>
-            <div class="upgrade" id="upgrade1"title="laofes by 1.75 this time">
+            <div class="upgrade" id="upgrade1" title="laofes by 1.75 this time">
                 <p>Gaming Chair </p>
                 <p id="gamingChair-count">Owned: 0</p>
                 <p id="gamingChair-cost">Cost:800</p>
                 <button class="button" id="purchase-gamingChair"> gaming chaire</button>
             </div>
-            <div class="upgrade" id="upgrade1"title="EVERYTHING TIMES TOO">
+            <div class="upgrade" id="upgrade1" title="EVERYTHING TIMES TOO">
                 <p>Gaming Air </p>
                 <p id="gamingAir-count">Owned: 0</p>
                 <p id="gamingAir-cost">Cost:1000</p>
                 <button class="button" id="purchase-gamingAir"> gaming aire</button>
             </div>
-            
+
         </div>
         <div class="clicker-box">
             <img id='clicker-image' src="https://c.tenor.com/rx7OgOfkgP4AAAAC/doge-dog.gif">
             <p id='loaf-amount'>LOAF: 0 loafe</p>
             <p id="loafPerSecond">LOAF per second: 0 loafe</p>
-            <button id="purchase-ownDoge" class="button1" title="ITS WORTH IT">Your Own Doge, but for everything</button>
-            <p class="owned1"id="doge-count">Owned: 0</p>
+            <button id="purchase-ownDoge" class="button1" title="ITS WORTH IT">Your Own Doge, but for
+                everything</button>
+            <p class="owned1" id="doge-count">Owned: 0</p>
         </div>
         <div class="autoclicker-box">
             <div class="autoclicker" id="autoclicker1" title="0.5 loaf per second">
@@ -72,7 +75,7 @@
                 <p id="elonMuske-cost">Cost: 200</p>
                 <button class="button" id="purchase-elonMuske">BUY NOW</button>
             </div>
-            <div class='autoclicker' id='autoclicker3'title="FOUR LOAFES A SECOND">
+            <div class='autoclicker' id='autoclicker3' title="FOUR LOAFES A SECOND">
                 <p>Doge Cat</p>
                 <p id="dogeCat-count">Owned: 0</p>
                 <p id="dogeCat-cost">Cost: 400</p>
@@ -86,7 +89,7 @@
         <!-- </div> -->
         <script>
             // Variables
-            
+
             loaf = 0;
             loafPerSecond = 0;
             var microSD = {
@@ -95,10 +98,10 @@
                 basePrice: 50, // the first one costs 50
             };
             var clicks = {
-                 rps : 0,
-                 numberOwned:0,
-                 basePrice:100,
-             }
+                rps: 0,
+                numberOwned: 0,
+                basePrice: 100,
+            }
             // amp = how much the upgrade is amplifying how many loaf you get per second
             var bitCoin = {
                 amp: 1.25,
@@ -120,29 +123,29 @@
                 numberOwned: 0,
                 basePrice: 400,
             }
-            var gamingMouse={
+            var gamingMouse = {
                 amp: 1.50,
-                numberOwned:0,
-                basePrice:600,
+                numberOwned: 0,
+                basePrice: 600,
             }
-            var gamingChair={
+            var gamingChair = {
                 amp: 1.75,
-                numberOwned:0,
-                basePrice:800,
+                numberOwned: 0,
+                basePrice: 800,
             }
-            var gamingAir={
+            var gamingAir = {
                 amp: 2,
-                numberOwned:0,
-                basePrice:1000,
+                numberOwned: 0,
+                basePrice: 1000,
             }
-            var ownDoge={
-                numberOwned:0,
+            var ownDoge = {
+                numberOwned: 0,
                 basePrice: loaf,
             }
             // Core Functionality
             $("#clicker-image").on("click", downloadLOAF);
             setInterval(addAutoLoaf, 1000);
-            setInterval(giveUp,1000);
+            setInterval(giveUp, 1000);
 
 
             // Event/Click Listeners
@@ -156,51 +159,63 @@
             $('#purchase-gamingAir').on('click', purchasegamingAir);
             $('#purchase-ownDoge').on('click', purchaseownDoge);
             $('#purchase-clickers').on('click', purchasegamingClicker);
-
+            $('#save-game').on('click', saveGame);
+            $('#load-game').on('click', loadGame);
 
             // Functions
-            
+            function loadGame(){
+                document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+                console.log(localStorage.getItem);
+            }
+            function saveGame() {
+                if (typeof (Storage) !== "undefined") {
+                    localStorage.setItem("lastname", "Smith");
+
+                } else {
+                    // Sorry! No Web Storage support..
+                }
+            }
             function downloadLOAF() {
                 loaf = loaf + 1 + clicks.rps;
                 console.log(loaf);
                 $("#loaf-amount").text("LOAF: " + loaf + " loafe");
 
             }
-            function giveUp(){
-                if (loaf===1500000){
+            function giveUp() {
+                if (loaf === 1500000) {
                     alert('Okay you are done idiot');
                     console.log(lul);
                 }
             }
-            function purchasegamingClicker(){
+            function purchasegamingClicker() {
                 var cost = Math.ceil(clicks.basePrice * Math.pow(1.1, clicks.numberOwned));
 
-              if (loaf >= cost){
-                  loaf = loaf - cost;
-                  clicks.rps = clicks.rps + 1;
-                  clicks.numberOwned = clicks.numberOwned + 1;
+                if (loaf >= cost) {
+                    loaf = loaf - cost;
+                    clicks.rps = clicks.rps + 1;
+                    clicks.numberOwned = clicks.numberOwned + 1;
                     $('#gamingClicker-count').text("Owned: " + clicks.numberOwned);
                     var newCost = Math.ceil(clicks.basePrice * Math.pow(1.1, clicks.numberOwned));
                     $('#gamingClicker-cost').text("Cost: " + newCost);
-              }
+                }
             }
-            function purchaseownDoge(){
-                var cost=loaf;
-                if (loaf===0){
+            function purchaseownDoge() {
+                var cost = loaf;
+                if (loaf === 0) {
                 }
                 else if (loaf >= cost) {
                     loaf = loaf - cost;
-                    loafPerSecond=0;
+                    loafPerSecond = 0;
                     $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
-                    ownDoge.numberOwned= ownDoge.numberOwned +1;
-                    $('#doge-count').text("Owned: " + ownDoge.numberOwned);  
+                    ownDoge.numberOwned = ownDoge.numberOwned + 1;
+                    $('#doge-count').text("Owned: " + ownDoge.numberOwned);
                 }
 
             }
-            
-            
+
+
             function purchasegamingAir() {
-        
+
                 var cost = Math.ceil(gamingAir.basePrice * Math.pow(1.1, gamingAir.numberOwned));
                 // increase the new cost by 10%
                 if (loaf >= cost) {
