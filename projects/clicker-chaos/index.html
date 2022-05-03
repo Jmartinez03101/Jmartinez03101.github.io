@@ -166,10 +166,19 @@
             function loadGame(){
                 document.getElementById("result").innerHTML = localStorage.getItem("lastname");
                 console.log(localStorage.getItem);
+                var numLoafs = localStorage.getItem("numLoafs");
+                loaf = numLoafs; // set the loafs in the game (which could be 0 if the game was reloaded) to the numLoafs which we just got from localStorage
+                $("#loaf-amount").text("LOAF: " + loaf + " loafe");
+                var loafsPerSecond = localStorage.getItem("loafsPerSecond");
+                loafPerSecond = loafsPerSecond;
+                $("#loafPerSecond").text("LOAF: " + loafPerSecond + " loafe");
+
+
             }
             function saveGame() {
                 if (typeof (Storage) !== "undefined") {
-                    localStorage.setItem("lastname", "Smith");
+                    localStorage.setItem("numLoafs", loaf);
+                    localStorage.setItem("loafsPerSecond", loafPerSecond);
 
                 } else {
                     // Sorry! No Web Storage support..
