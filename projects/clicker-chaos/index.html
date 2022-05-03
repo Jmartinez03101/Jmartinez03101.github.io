@@ -96,51 +96,61 @@
                 rps: 0.5, // each net helps us catch one butterfly per second
                 numberOwned: 0, // we don't have any nets at the beginning of the game
                 basePrice: 50, // the first one costs 50
+                cost:50,
             };
             var clicks = {
                 rps: 0,
                 numberOwned: 0,
                 basePrice: 100,
+                cost:100,
             }
             // amp = how much the upgrade is amplifying how many loaf you get per second
             var bitCoin = {
                 amp: 1.25,
                 numberOwned: 0,
                 basePrice: 400,
+                cost:400,
             }
             var dogeCoin = {
                 rps: 1,
                 numberOwned: 0,
                 basePrice: 100,
+                cost:100,
             }
             var elonMuske = {
                 rps: 2,
                 numberOwned: 0,
                 basePrice: 200,
+                cost:200,
             }
             var dogeCat = {
                 rps: 4,
                 numberOwned: 0,
                 basePrice: 400,
+                cost:400,
             }
             var gamingMouse = {
                 amp: 1.50,
                 numberOwned: 0,
                 basePrice: 600,
+                cost:600,
             }
             var gamingChair = {
                 amp: 1.75,
                 numberOwned: 0,
                 basePrice: 800,
+                cost:800,
             }
             var gamingAir = {
                 amp: 2,
                 numberOwned: 0,
                 basePrice: 1000,
+                cost:1000,
             }
             var ownDoge = {
                 numberOwned: 0,
                 basePrice: loaf,
+                cost:loaf,
             }
             // Core Functionality
             $("#clicker-image").on("click", downloadLOAF);
@@ -164,21 +174,132 @@
 
             // Functions
             function loadGame(){
-                document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-                console.log(localStorage.getItem);
-                var numLoafs = localStorage.getItem("numLoafs");
-                loaf = numLoafs; // set the loafs in the game (which could be 0 if the game was reloaded) to the numLoafs which we just got from localStorage
-                $("#loaf-amount").text("LOAF: " + loaf + " loafe");
+                // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+                // console.log(localStorage.getItem);
+                // var numLoafs = localStorage.getItem("numLoafs");
+                // loaf = numLoafs; // set the loafs in the game (which could be 0 if the game was reloaded) to the numLoafs which we just got from localStorage
+                // $("#loaf-amount").text("LOAF: " + loaf + " loafe");
+                var numLoafs = localStorage.getItem('numLoafs');
+                loaf=numLoafs;
+                $('#loaf-amount').text('LOAF: ' + loaf + ' loafe');
                 var loafsPerSecond = localStorage.getItem("loafsPerSecond");
                 loafPerSecond = loafsPerSecond;
                 $("#loafPerSecond").text("LOAF: " + loafPerSecond + " loafe");
-
-
+                console.log('l');
+                var loaferOwned = localStorage.getItem("loaferOwned");
+                microSD.numberOwned = loaferOwned;
+                $("#microSD-count").text("Owned: " + microSD.numberOwned);
+                var loaferCost=localStorage.getItem('loaferCost');
+                microSD.cost=loaferCost;
+                $('#microSD-cost').text("Cost: " + microSD.cost);
+                var loaferPerSecond=localStorage.getItem('loaferPerSecond');
+                microSD.rps=loaferPerSecond;
+                // $("#loafPerSecond").text("LOAF per second: " + microSD.rps + " loafe");
+                var dogeCoinOwned=localStorage.getItem('dogeCoinOwned');
+                dogeCoin.numberOwned=dogeCoinOwned;
+                $('#dogeCoin-count').text("Owned: " + dogeCoin.numberOwned );
+                var dogeCoinCost=localStorage.getItem('dogeCoinCost');
+                dogeCoin.cost=dogeCoinCost;
+                $('#bitCoin-cost').text("Cost: " + dogeCoin.cost);
+                var dogeCoinPerSecond=localStorage.getItem('dogeCoinPerSecond');
+                dogeCoin.rps=dogeCoinPerSecond
+                // $('#loafPerSecond').text("LOAF per second " + dogeCoin.rps + " loafe")
+                var elonMuskOwned=localStorage.getItem('elonMuskOwned');
+                elonMuske.numberOwned=elonMuskOwned;
+                $("#elonMuske-count").text("Owned: " + elonMuske.numberOwned);
+                var elonMuskCost=localStorage.getItem('elonMuskCost');
+                elonMuske.cost=elonMuskCost;
+                $('#elonMuske-cost').text("Cost: " + elonMuske.cost)
+                var elonMuskPerSecond=localStorage.getItem('elonMuskPerSecond');
+                elonMuske.rps=elonMuskPerSecond;
+                // $('#loafPerSecond').text("LOAF per second " + loafPerSecond + " loafe");
+                var dogeCatOwned=localStorage.getItem('dogeCatOwned');
+                dogeCat.numberOwned=dogeCatOwned;
+                $("#dogeCat-count").text("Owned: " + dogeCat.numberOwned);
+                var dogeCatCost=localStorage.getItem('dogeCatCost');
+                dogeCat.cost=dogeCatCost;
+                $('#dogeCat-cost').text("Owned: " + dogeCat.cost);
+                var dogeCatPerSecond=localStorage.getItem('dogeCatPerSecond');
+                dogeCat.rps=dogeCatPerSecond;
+                var bitCoinFarmOwned=localStorage.getItem('bitCoinFarmOwned');
+                bitCoin.numberOwned=bitCoinFarmOwned;
+                $('#bitCoin-count').text("Owned: " + bitCoin.numberOwned);
+                var bitCoinFarmCost=localStorage.getItem('bitCoinFarmCost');
+                bitCoin.cost=bitCoinFarmCost;
+                $('#bitCoin-cost').text("Owned: " + bitCoin.cost);
+                var bitCoinFarmAmp=localStorage.getItem('bitCoinFarmAmp');
+                bitCoin.amp=bitCoinFarmAmp;
+                var gamingMousOwned=localStorage.getItem('gamingMousOwned');
+                gamingMouse.numberOwned=gamingMousOwned;
+                $('#gamingMouse-count').text("Owned: " + gamingMouse.numberOwned);
+                var gamingMouseCost=localStorage.getItem('gamingMouseCost');
+                gamingMouse.cost=gamingMouseCost;
+                $('#gamingMouse-cost').text("Owned: " + gamingMouse.cost);
+                var gamingMouseAmp=localStorage.getItem('gamingMouseAmp');
+                gamingMouse.amp=gamingMouseAmp;
+                var gamingChairOwned=localStorage.getItem('gamingChairOwned');
+                gamingChair.numberOwned=gamingChairOwned;
+                $('#gamingChair-count').text("Owned: " + gamingChair.numberOwned);
+                var gamingChairCost=localStorage.getItem('gamingChairCost');
+                gamingChair.cost=gamingChairCost;
+                $('#gamingChair-cost').text("Owned: " + gamingChair.cost);
+                var gamingChairAmp=localStorage.getItem('gamingChairAmp');
+                gamingChair.amp=gamingChairAmp;
+                var gamingAirOwned=localStorage.getItem('gamingAirOwned');
+                gamingAir.numberOwned=gamingAirOwned;
+                $('#gamingAir-count').text("Owned: " + gamingAir.numberOwned);
+                var gamingAirCost=localStorage.getItem('gamingAirCost');
+                gamingAir.cost=gamingAirCost;
+                $('#gamingAir-cost').text("Owned: " +gamingAir.cost);
+                var gamingAirAmp=localStorage.getItem('gamingAirAmp');
+                gamingAir.amp=gamingAirAmp;
+                var clickerOwned=localStorage.getItem('clickerOwned');
+                clicks.numberOwned=clickerOwned;
+                $('#gamingClicker-count').text("Owned: " + clicks.numberOwned);
+                var clickerCost=localStorage.getItem('clickerCost');
+                clicks.cost=clickerCost;
+                $('#gamingClicker-cost').text("Owned: " + clicks.cost);
+                var clickerRps=localStorage.getItem('clickerRps');
+                clicks.rps=clickerRps;
+                var ownedDogeOwned=localStorage.getItem('ownedDogeOwned');
+                ownDoge.numberOwned=ownedDogeOwned;
+                $('#doge-count').text("Owned: " + ownDoge.numberOwned);
+                var ownedDogeCost=localStorage.getItem('ownedDogeCost');
+                ownDoge.cost=ownedDogeCost;
             }
             function saveGame() {
                 if (typeof (Storage) !== "undefined") {
                     localStorage.setItem("numLoafs", loaf);
                     localStorage.setItem("loafsPerSecond", loafPerSecond);
+                    localStorage.setItem('loaferOwned', microSD.numberOwned);
+                    localStorage.setItem('loaferCost',microSD.cost);
+                    localStorage.setItem('loaferPerSecond',microSD.rps);
+                    localStorage.setItem('dogeCoinOwned',dogeCoin.numberOwned);
+                    localStorage.setItem('dogeCoinCost',dogeCoin.cost);
+                    localStorage.setItem('dogeCoinPerSecond',dogeCoin.rps);
+                    localStorage.setItem('elonMuskOwned',elonMuske.numberOwned);
+                    localStorage.setItem('elonMuskCost',elonMuske.cost);
+                    localStorage.setItem('elonMuskPerSecond',elonMuske.rps);
+                    localStorage.setItem('dogeCatOwned',dogeCat.numberOwned);
+                    localStorage.setItem('dogeCatCost',dogeCat.cost);
+                    localStorage.setItem('dogeCatPerSecond',dogeCat.rps);
+                    localStorage.setItem('bitCoinFarmOwned',bitCoin.numberOwned);
+                    localStorage.setItem('bitCoinFarmCost',bitCoin.cost);
+                    localStorage.setItem('bitCoinFarmAmp',bitCoin.amp);
+                    localStorage.setItem('gamingMousOwned',gamingMouse.numberOwned);
+                    localStorage.setItem('gamingMouseCost',gamingMouse.cost);
+                    localStorage.setItem('gamingMouseAmp',gamingMouse.amp);
+                    localStorage.setItem('gamingChairOwned',gamingChair.numberOwned);
+                    localStorage.setItem('gamingChairCost',gamingChair.cost);
+                    localStorage.setItem('gamingChairAmp',gamingChair.amp);
+                    localStorage.setItem('gamingAirOwned',gamingAir.numberOwned);
+                    localStorage.setItem('gamingAirCost',gamingAir.cost);
+                    localStorage.setItem('gamingAirAmp',gamingAir.amp);
+                    localStorage.setItem('clickerOwned',clicks.numberOwned);
+                    localStorage.setItem('clickerCost',clicks.cost);
+                    localStorage.setItem('clickerRps',clicks.rps);
+                    localStorage.setItem('ownedDogeOwned',ownDoge.numberOwned);
+                    localStorage.setItem('ownedDogeCost',ownDoge.cost);
 
                 } else {
                     // Sorry! No Web Storage support..
@@ -197,86 +318,86 @@
                 }
             }
             function purchasegamingClicker() {
-                var cost = Math.ceil(clicks.basePrice * Math.pow(1.1, clicks.numberOwned));
+                clicks.cost = Math.ceil(clicks.basePrice * Math.pow(1.1, clicks.numberOwned));
 
-                if (loaf >= cost) {
-                    loaf = loaf - cost;
+                if (loaf >= clicks.cost) {
+                    loaf = loaf - clicks.cost;
                     clicks.rps = clicks.rps + 1;
                     clicks.numberOwned = clicks.numberOwned + 1;
                     $('#gamingClicker-count').text("Owned: " + clicks.numberOwned);
-                    var newCost = Math.ceil(clicks.basePrice * Math.pow(1.1, clicks.numberOwned));
-                    $('#gamingClicker-cost').text("Cost: " + newCost);
+                    clicks.cost = Math.ceil(clicks.basePrice * Math.pow(1.1, clicks.numberOwned));
+                    $('#gamingClicker-cost').text("Cost: " + clicks.cost);
                 }
             }
             function purchaseownDoge() {
-                var cost = loaf;
+                ownDoge.cost = loaf;
                 if (loaf === 0) {
                 }
-                else if (loaf >= cost) {
-                    loaf = loaf - cost;
+                else if (loaf >= ownDoge.cost) {
+                    loaf = loaf - ownDoge.cost;
                     loafPerSecond = 0;
                     $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
                     ownDoge.numberOwned = ownDoge.numberOwned + 1;
                     $('#doge-count').text("Owned: " + ownDoge.numberOwned);
                 }
-
+0
             }
 
 
             function purchasegamingAir() {
 
-                var cost = Math.ceil(gamingAir.basePrice * Math.pow(1.1, gamingAir.numberOwned));
+                gamingAir.cost = Math.ceil(gamingAir.basePrice * Math.pow(1.1, gamingAir.numberOwned));
                 // increase the new cost by 10%
-                if (loaf >= cost) {
-                    loaf = loaf - cost;
+                if (loaf >= gamingAir.cost) {
+                    loaf = loaf - gamingAir.cost;
 
                     loafPerSecond = loafPerSecond * 1.25;
                     $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
                     gamingAir.numberOwned = gamingAir.numberOwned + 1;
                     $('#gamingAir-count').text("Owned: " + gamingAir.numberOwned);
-                    var newCost = Math.ceil(gamingAir.basePrice * Math.pow(1.1, gamingAir.numberOwned));
-                    $('#gamingAir-cost').text("Cost: " + newCost);
+                    gamingAir.cost = Math.ceil(gamingAir.basePrice * Math.pow(1.1, gamingAir.numberOwned));
+                    $('#gamingAir-cost').text("Cost: " + gamingAir.cost);
                 }
             }
             function purchasegamingChair() {
-                var cost = Math.ceil(gamingChair.basePrice * Math.pow(1.1, gamingChair.numberOwned));
+                gamingChair.cost = Math.ceil(gamingChair.basePrice * Math.pow(1.1, gamingChair.numberOwned));
                 // increase the new cost by 10%
-                if (loaf >= cost) {
-                    loaf = loaf - cost;
+                if (loaf >= gamingChair.cost) {
+                    loaf = loaf - gamingChair.cost;
 
                     loafPerSecond = loafPerSecond * 1.25;
                     $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
                     gamingChair.numberOwned = gamingChair.numberOwned + 1;
                     $('#gamingChair-count').text("Owned: " + gamingChair.numberOwned);
-                    var newCost = Math.ceil(gamingChair.basePrice * Math.pow(1.1, gamingChair.numberOwned));
-                    $('#gamingChair-cost').text("Cost: " + newCost);
+                    gamingChair.cost = Math.ceil(gamingChair.basePrice * Math.pow(1.1, gamingChair.numberOwned));
+                    $('#gamingChair-cost').text("Cost: " + gamingChair.cost);
                 }
             }
             function purchasegamingMouse() {
-                var cost = Math.ceil(gamingMouse.basePrice * Math.pow(1.1, gamingMouse.numberOwned));
+                gamingMouse.cost = Math.ceil(gamingMouse.basePrice * Math.pow(1.1, gamingMouse.numberOwned));
                 // increase the new cost by 10%
-                if (loaf >= cost) {
-                    loaf = loaf - cost;
+                if (loaf >=  gamingMouse.cost) {
+                    loaf = loaf -  gamingMouse.cost;
 
                     loafPerSecond = loafPerSecond * 1.25;
                     $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
                     gamingMouse.numberOwned = gamingMouse.numberOwned + 1;
                     $('#gamingMouse-count').text("Owned: " + gamingMouse.numberOwned);
-                    var newCost = Math.ceil(gamingMouse.basePrice * Math.pow(1.1, gamingMouse.numberOwned));
-                    $('#gamingMouse-cost').text("Cost: " + newCost);
+                    gamingMouse.cost = Math.ceil(gamingMouse.basePrice * Math.pow(1.1, gamingMouse.numberOwned));
+                    $('#gamingMouse-cost').text("Cost: " +  gamingMouse.cost);
                 }
             }
             function purchasedogeCat() {
-                var cost = Math.ceil(dogeCat.basePrice * Math.pow(1.1, dogeCat.numberOwned));
-                if (loaf >= cost) {
-                    loaf = loaf - cost;
+                dogeCat.cost = Math.ceil(dogeCat.basePrice * Math.pow(1.1, dogeCat.numberOwned));
+                if (loaf >= dogeCat.cost) {
+                    loaf = loaf - dogeCat.cost;
 
                     loafPerSecond = loafPerSecond + dogeCat.rps;
                     $('#loafPerSecond').text("LOAF per second " + loafPerSecond + " loafe")
                     dogeCat.numberOwned = dogeCat.numberOwned + 1;
                     $("#dogeCat-count").text("Owned: " + dogeCat.numberOwned);
-                    var newCost = Math.ceil(dogeCat.basePrice * Math.pow(1.1, dogeCat.numberOwned));
-                    $('#dogeCat-cost').text('Cost: ' + newCost);
+                    dogeCat.cost = Math.ceil(dogeCat.basePrice * Math.pow(1.1, dogeCat.numberOwned));
+                    $('#dogeCat-cost').text('Cost: ' + dogeCat.cost);
                 }
             }
             // function purchasebitCoin() {
@@ -294,43 +415,43 @@
             //     }
             // }
             function purchaseelonMuske() {
-                var cost = Math.ceil(elonMuske.basePrice * Math.pow(1.1, elonMuske.numberOwned));
-                if (loaf >= cost) {
-                    loaf = loaf - cost;
+                elonMuske.cost = Math.ceil(elonMuske.basePrice * Math.pow(1.1, elonMuske.numberOwned));
+                if (loaf >= elonMuske.cost) {
+                    loaf = loaf - elonMuske.cost;
 
                     loafPerSecond = loafPerSecond + elonMuske.rps;
-                    $('#loafPerSecond').text("LOAF per second " + loafPerSecond + " loafe")
+                    $('#loafPerSecond').text("LOAF per second " + loafPerSecond + " loafe");
                     elonMuske.numberOwned = elonMuske.numberOwned + 1;
                     $("#elonMuske-count").text("Owned: " + elonMuske.numberOwned);
-                    var newCost = Math.ceil(elonMuske.basePrice * Math.pow(1.1, elonMuske.numberOwned));
-                    $('#elonMuske-cost').text('Cost: ' + newCost);
+                    elonMuske.cost = Math.ceil(elonMuske.basePrice * Math.pow(1.1, elonMuske.numberOwned));
+                    $('#elonMuske-cost').text('Cost: ' + elonMuske.cost);
                 }
             }
             function purchasebitCoin() {
-                var cost = Math.ceil(bitCoin.basePrice * Math.pow(1.1, bitCoin.numberOwned));
+                bitCoin.cost = Math.ceil(bitCoin.basePrice * Math.pow(1.1, bitCoin.numberOwned));
                 // increase the new cost by 10%
-                if (loaf >= cost) {
-                    loaf = loaf - cost;
+                if (loaf >= bitCoin.cost) {
+                    loaf = loaf - bitCoin.cost;
 
                     loafPerSecond = loafPerSecond * 1.25;
                     $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
                     bitCoin.numberOwned = bitCoin.numberOwned + 1;
                     $('#bitCoin-count').text("Owned: " + bitCoin.numberOwned);
-                    var newCost = Math.ceil(bitCoin.basePrice * Math.pow(1.1, bitCoin.numberOwned));
-                    $('#bitCoin-cost').text("Cost: " + newCost);
+                    bitCoin.cost = Math.ceil(bitCoin.basePrice * Math.pow(1.1, bitCoin.numberOwned));
+                    $('#bitCoin-cost').text("Cost: " + bitCoin.cost);
                 }
             }
             function purchasedogeCoin() {
-                var cost = Math.ceil(dogeCoin.basePrice * Math.pow(1.1, dogeCoin.numberOwned));
-                if (loaf >= cost) {
-                    loaf = loaf - cost;
+                dogeCoin.cost = Math.ceil(dogeCoin.basePrice * Math.pow(1.1, dogeCoin.numberOwned));
+                if (loaf >= dogeCoin.cost) {
+                    loaf = loaf - dogeCoin.cost;
 
                     loafPerSecond = loafPerSecond + dogeCoin.rps;
-                    $('#loafPerSecond').text("LOAF per second " + loafPerSecond + " loafe")
+                    $('#loafPerSecond').text("LOAF per second " + loafPerSecond + " loafe");
                     dogeCoin.numberOwned = dogeCoin.numberOwned + 1;
                     $("#dogeCoin-count").text("Owned: " + dogeCoin.numberOwned);
-                    var newCost = Math.ceil(dogeCoin.basePrice * Math.pow(1.1, dogeCoin.numberOwned));
-                    $('#dogeCoin-cost').text('Cost: ' + newCost);
+                    dogeCoin.cost = Math.ceil(dogeCoin.basePrice * Math.pow(1.1, dogeCoin.numberOwned));
+                    $('#dogeCoin-cost').text('Cost: ' + dogeCoin.cost);
                 }
             }
             function purchaseMicroSD() {
@@ -340,14 +461,14 @@
                     if you just stick with purchasing one item to encourage you to get deeper and deeper into the game. 
                     The math behind this involves exponential growth. You'll use the Math.pow() function to help calculate the cost.
                 */
-                var cost = Math.ceil(microSD.basePrice * Math.pow(1.1, microSD.numberOwned));
+                microSD.cost = Math.ceil(microSD.basePrice * Math.pow(1.1, microSD.numberOwned));
                 // The number 1.1 means that each microSD will be 10% more expensive than the previous one.
                 // You'll want to tinker with this number to make sure it gives you the gameplay experience you want (it should probably be greater than 1 and less than 2)
                 // In this example, the first will cost 50, the second 55, and the 50th will cost around 5500.
 
-                if (loaf >= cost) {
+                if (loaf >= microSD.cost) {
                     // write a line of code that decreases the loaf by the cost
-                    loaf = loaf - cost;
+                    loaf = loaf - microSD.cost;
                     // write a second line of code that increases the loafPerSecond variable by microSD's rps value
                     loafPerSecond = loafPerSecond + microSD.rps;
                     $("#loafPerSecond").text("LOAF per second: " + loafPerSecond + " loafe");
@@ -357,8 +478,8 @@
                     $("#microSD-count").text("Owned: " + microSD.numberOwned); // Update the text based on the updated numberOwned property
 
                     // Now we'll calculate the cost of the next microsd
-                    var newCost = Math.ceil(microSD.basePrice * Math.pow(1.1, microSD.numberOwned));
-                    $('#microSD-cost').text("Cost: " + newCost);
+                     microSD.cost = Math.ceil(microSD.basePrice * Math.pow(1.1, microSD.numberOwned));
+                    $('#microSD-cost').text("Cost: " + microSD.cost);
                 }
             }
             setInterval(addAutoLoaf, 1000);
@@ -372,7 +493,7 @@
                 */
                 loaf = loaf + loafPerSecond;
                 // update the text that displays the loaf available
-                $("#loaf-amount").text("loaf: " + Math.floor(loaf) + " loafe");
+                $("#loaf-amount").text("LOAF: " + Math.floor(loaf) + " loafe");
             }
             /* All code above here */
         </script>
