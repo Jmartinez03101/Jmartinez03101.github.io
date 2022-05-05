@@ -47,11 +47,11 @@
         </div>
         <div class="clicker-box">
             <img id='clicker-image' src="https://c.tenor.com/rx7OgOfkgP4AAAAC/doge-dog.gif">
-            <p id='loaf-amount'>LOAF: 0 loafe</p>
-            <p id="loafPerSecond">LOAF per second: 0 loafe</p>
+            <p class='clicker'id='loaf-amount'>LOAF: 0 loafe</p>
+            <p class='clicker'id="loafPerSecond">LOAF per second: 0 loafe</p>
             <button id="purchase-ownDoge" class="button1" title="ITS WORTH IT">Your Own Doge, but for
                 everything</button>
-            <p class="owned1" id="doge-count">Owned: 0</p>
+            <p class = 'clicker'class="owned1" id="doge-count">Owned: 0</p>
         </div>
         <div class="autoclicker-box">
             <div class="autoclicker" id="autoclicker1" title="0.5 loaf per second">
@@ -491,7 +491,7 @@
                     If you chose a number different than 1000 above for your setInterval timer, you'll have to divide the loafPerSecond value before adding it to the loaf.
                     For example, if you chose 250, update the loaf variable by adding one fourth of the loafPerSecond value.
                 */
-                loaf = loaf + loafPerSecond;
+                loaf =  loaf + loafPerSecond ;
                 // update the text that displays the loaf available
                 $("#loaf-amount").text("LOAF: " + Math.floor(loaf) + " loafe");
             }
