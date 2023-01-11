@@ -47,11 +47,11 @@
         </div>
         <div class="clicker-box">
             <img id='clicker-image' src="https://c.tenor.com/rx7OgOfkgP4AAAAC/doge-dog.gif">
-            <p class='clicker'id='loaf-amount'>LOAF: 0 loafe</p>
-            <p class='clicker'id="loafPerSecond">LOAF per second: 0 loafe</p>
+            <p class='clicker' id='loaf-amount'>LOAF: 0 loafe</p>
+            <p class='clicker' id="loafPerSecond">LOAF per second: 0 loafe</p>
             <button id="purchase-ownDoge" class="button1" title="ITS WORTH IT">Your Own Doge, but for
                 everything</button>
-            <p class = 'clicker'class="owned1" id="doge-count">Owned: 0</p>
+            <p class='clicker' class="owned1" id="doge-count">Owned: 0</p>
         </div>
         <div class="autoclicker-box">
             <div class="autoclicker" id="autoclicker1" title="0.5 loaf per second">
@@ -96,61 +96,61 @@
                 rps: 0.5, // each net helps us catch one butterfly per second
                 numberOwned: 0, // we don't have any nets at the beginning of the game
                 basePrice: 50, // the first one costs 50
-                cost:50,
+                cost: 50,
             };
             var clicks = {
                 rps: 0,
                 numberOwned: 0,
                 basePrice: 100,
-                cost:100,
+                cost: 100,
             }
             // amp = how much the upgrade is amplifying how many loaf you get per second
             var bitCoin = {
                 amp: 1.25,
                 numberOwned: 0,
                 basePrice: 400,
-                cost:400,
+                cost: 400,
             }
             var dogeCoin = {
                 rps: 1,
                 numberOwned: 0,
                 basePrice: 100,
-                cost:100,
+                cost: 100,
             }
             var elonMuske = {
                 rps: 2,
                 numberOwned: 0,
                 basePrice: 200,
-                cost:200,
+                cost: 200,
             }
             var dogeCat = {
                 rps: 4,
                 numberOwned: 0,
                 basePrice: 400,
-                cost:400,
+                cost: 400,
             }
             var gamingMouse = {
                 amp: 1.50,
                 numberOwned: 0,
                 basePrice: 600,
-                cost:600,
+                cost: 600,
             }
             var gamingChair = {
                 amp: 1.75,
                 numberOwned: 0,
                 basePrice: 800,
-                cost:800,
+                cost: 800,
             }
             var gamingAir = {
                 amp: 2,
                 numberOwned: 0,
                 basePrice: 1000,
-                cost:1000,
+                cost: 1000,
             }
             var ownDoge = {
                 numberOwned: 0,
                 basePrice: loaf,
-                cost:loaf,
+                cost: loaf,
             }
             // Core Functionality
             $("#clicker-image").on("click", downloadLOAF);
@@ -173,14 +173,14 @@
             $('#load-game').on('click', loadGame);
 
             // Functions
-            function loadGame(){
+            function loadGame() {
                 // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
                 // console.log(localStorage.getItem);
                 // var numLoafs = localStorage.getItem("numLoafs");
                 // loaf = numLoafs; // set the loafs in the game (which could be 0 if the game was reloaded) to the numLoafs which we just got from localStorage
                 // $("#loaf-amount").text("LOAF: " + loaf + " loafe");
                 var numLoafs = localStorage.getItem('numLoafs');
-                loaf=numLoafs;
+                loaf = numLoafs;
                 $('#loaf-amount').text('LOAF: ' + loaf + ' loafe');
                 var loafsPerSecond = localStorage.getItem("loafsPerSecond");
                 loafPerSecond = loafsPerSecond;
@@ -189,117 +189,117 @@
                 var loaferOwned = localStorage.getItem("loaferOwned");
                 microSD.numberOwned = loaferOwned;
                 $("#microSD-count").text("Owned: " + microSD.numberOwned);
-                var loaferCost=localStorage.getItem('loaferCost');
-                microSD.cost=loaferCost;
+                var loaferCost = localStorage.getItem('loaferCost');
+                microSD.cost = loaferCost;
                 $('#microSD-cost').text("Cost: " + microSD.cost);
-                var loaferPerSecond=localStorage.getItem('loaferPerSecond');
-                microSD.rps=loaferPerSecond;
+                var loaferPerSecond = localStorage.getItem('loaferPerSecond');
+                microSD.rps = loaferPerSecond;
                 // $("#loafPerSecond").text("LOAF per second: " + microSD.rps + " loafe");
-                var dogeCoinOwned=localStorage.getItem('dogeCoinOwned');
-                dogeCoin.numberOwned=dogeCoinOwned;
-                $('#dogeCoin-count').text("Owned: " + dogeCoin.numberOwned );
-                var dogeCoinCost=localStorage.getItem('dogeCoinCost');
-                dogeCoin.cost=dogeCoinCost;
+                var dogeCoinOwned = localStorage.getItem('dogeCoinOwned');
+                dogeCoin.numberOwned = dogeCoinOwned;
+                $('#dogeCoin-count').text("Owned: " + dogeCoin.numberOwned);
+                var dogeCoinCost = localStorage.getItem('dogeCoinCost');
+                dogeCoin.cost = dogeCoinCost;
                 $('#bitCoin-cost').text("Cost: " + dogeCoin.cost);
-                var dogeCoinPerSecond=localStorage.getItem('dogeCoinPerSecond');
-                dogeCoin.rps=dogeCoinPerSecond
+                var dogeCoinPerSecond = localStorage.getItem('dogeCoinPerSecond');
+                dogeCoin.rps = dogeCoinPerSecond
                 // $('#loafPerSecond').text("LOAF per second " + dogeCoin.rps + " loafe")
-                var elonMuskOwned=localStorage.getItem('elonMuskOwned');
-                elonMuske.numberOwned=elonMuskOwned;
+                var elonMuskOwned = localStorage.getItem('elonMuskOwned');
+                elonMuske.numberOwned = elonMuskOwned;
                 $("#elonMuske-count").text("Owned: " + elonMuske.numberOwned);
-                var elonMuskCost=localStorage.getItem('elonMuskCost');
-                elonMuske.cost=elonMuskCost;
+                var elonMuskCost = localStorage.getItem('elonMuskCost');
+                elonMuske.cost = elonMuskCost;
                 $('#elonMuske-cost').text("Cost: " + elonMuske.cost)
-                var elonMuskPerSecond=localStorage.getItem('elonMuskPerSecond');
-                elonMuske.rps=elonMuskPerSecond;
+                var elonMuskPerSecond = localStorage.getItem('elonMuskPerSecond');
+                elonMuske.rps = elonMuskPerSecond;
                 // $('#loafPerSecond').text("LOAF per second " + loafPerSecond + " loafe");
-                var dogeCatOwned=localStorage.getItem('dogeCatOwned');
-                dogeCat.numberOwned=dogeCatOwned;
+                var dogeCatOwned = localStorage.getItem('dogeCatOwned');
+                dogeCat.numberOwned = dogeCatOwned;
                 $("#dogeCat-count").text("Owned: " + dogeCat.numberOwned);
-                var dogeCatCost=localStorage.getItem('dogeCatCost');
-                dogeCat.cost=dogeCatCost;
+                var dogeCatCost = localStorage.getItem('dogeCatCost');
+                dogeCat.cost = dogeCatCost;
                 $('#dogeCat-cost').text("Owned: " + dogeCat.cost);
-                var dogeCatPerSecond=localStorage.getItem('dogeCatPerSecond');
-                dogeCat.rps=dogeCatPerSecond;
-                var bitCoinFarmOwned=localStorage.getItem('bitCoinFarmOwned');
-                bitCoin.numberOwned=bitCoinFarmOwned;
+                var dogeCatPerSecond = localStorage.getItem('dogeCatPerSecond');
+                dogeCat.rps = dogeCatPerSecond;
+                var bitCoinFarmOwned = localStorage.getItem('bitCoinFarmOwned');
+                bitCoin.numberOwned = bitCoinFarmOwned;
                 $('#bitCoin-count').text("Owned: " + bitCoin.numberOwned);
-                var bitCoinFarmCost=localStorage.getItem('bitCoinFarmCost');
-                bitCoin.cost=bitCoinFarmCost;
+                var bitCoinFarmCost = localStorage.getItem('bitCoinFarmCost');
+                bitCoin.cost = bitCoinFarmCost;
                 $('#bitCoin-cost').text("Owned: " + bitCoin.cost);
-                var bitCoinFarmAmp=localStorage.getItem('bitCoinFarmAmp');
-                bitCoin.amp=bitCoinFarmAmp;
-                var gamingMousOwned=localStorage.getItem('gamingMousOwned');
-                gamingMouse.numberOwned=gamingMousOwned;
+                var bitCoinFarmAmp = localStorage.getItem('bitCoinFarmAmp');
+                bitCoin.amp = bitCoinFarmAmp;
+                var gamingMousOwned = localStorage.getItem('gamingMousOwned');
+                gamingMouse.numberOwned = gamingMousOwned;
                 $('#gamingMouse-count').text("Owned: " + gamingMouse.numberOwned);
-                var gamingMouseCost=localStorage.getItem('gamingMouseCost');
-                gamingMouse.cost=gamingMouseCost;
+                var gamingMouseCost = localStorage.getItem('gamingMouseCost');
+                gamingMouse.cost = gamingMouseCost;
                 $('#gamingMouse-cost').text("Owned: " + gamingMouse.cost);
-                var gamingMouseAmp=localStorage.getItem('gamingMouseAmp');
-                gamingMouse.amp=gamingMouseAmp;
-                var gamingChairOwned=localStorage.getItem('gamingChairOwned');
-                gamingChair.numberOwned=gamingChairOwned;
+                var gamingMouseAmp = localStorage.getItem('gamingMouseAmp');
+                gamingMouse.amp = gamingMouseAmp;
+                var gamingChairOwned = localStorage.getItem('gamingChairOwned');
+                gamingChair.numberOwned = gamingChairOwned;
                 $('#gamingChair-count').text("Owned: " + gamingChair.numberOwned);
-                var gamingChairCost=localStorage.getItem('gamingChairCost');
-                gamingChair.cost=gamingChairCost;
+                var gamingChairCost = localStorage.getItem('gamingChairCost');
+                gamingChair.cost = gamingChairCost;
                 $('#gamingChair-cost').text("Owned: " + gamingChair.cost);
-                var gamingChairAmp=localStorage.getItem('gamingChairAmp');
-                gamingChair.amp=gamingChairAmp;
-                var gamingAirOwned=localStorage.getItem('gamingAirOwned');
-                gamingAir.numberOwned=gamingAirOwned;
+                var gamingChairAmp = localStorage.getItem('gamingChairAmp');
+                gamingChair.amp = gamingChairAmp;
+                var gamingAirOwned = localStorage.getItem('gamingAirOwned');
+                gamingAir.numberOwned = gamingAirOwned;
                 $('#gamingAir-count').text("Owned: " + gamingAir.numberOwned);
-                var gamingAirCost=localStorage.getItem('gamingAirCost');
-                gamingAir.cost=gamingAirCost;
-                $('#gamingAir-cost').text("Owned: " +gamingAir.cost);
-                var gamingAirAmp=localStorage.getItem('gamingAirAmp');
-                gamingAir.amp=gamingAirAmp;
-                var clickerOwned=localStorage.getItem('clickerOwned');
-                clicks.numberOwned=clickerOwned;
+                var gamingAirCost = localStorage.getItem('gamingAirCost');
+                gamingAir.cost = gamingAirCost;
+                $('#gamingAir-cost').text("Owned: " + gamingAir.cost);
+                var gamingAirAmp = localStorage.getItem('gamingAirAmp');
+                gamingAir.amp = gamingAirAmp;
+                var clickerOwned = localStorage.getItem('clickerOwned');
+                clicks.numberOwned = clickerOwned;
                 $('#gamingClicker-count').text("Owned: " + clicks.numberOwned);
-                var clickerCost=localStorage.getItem('clickerCost');
-                clicks.cost=clickerCost;
+                var clickerCost = localStorage.getItem('clickerCost');
+                clicks.cost = clickerCost;
                 $('#gamingClicker-cost').text("Owned: " + clicks.cost);
-                var clickerRps=localStorage.getItem('clickerRps');
-                clicks.rps=clickerRps;
-                var ownedDogeOwned=localStorage.getItem('ownedDogeOwned');
-                ownDoge.numberOwned=ownedDogeOwned;
+                var clickerRps = localStorage.getItem('clickerRps');
+                clicks.rps = clickerRps;
+                var ownedDogeOwned = localStorage.getItem('ownedDogeOwned');
+                ownDoge.numberOwned = ownedDogeOwned;
                 $('#doge-count').text("Owned: " + ownDoge.numberOwned);
-                var ownedDogeCost=localStorage.getItem('ownedDogeCost');
-                ownDoge.cost=ownedDogeCost;
+                var ownedDogeCost = localStorage.getItem('ownedDogeCost');
+                ownDoge.cost = ownedDogeCost;
             }
             function saveGame() {
                 if (typeof (Storage) !== "undefined") {
                     localStorage.setItem("numLoafs", loaf);
                     localStorage.setItem("loafsPerSecond", loafPerSecond);
                     localStorage.setItem('loaferOwned', microSD.numberOwned);
-                    localStorage.setItem('loaferCost',microSD.cost);
-                    localStorage.setItem('loaferPerSecond',microSD.rps);
-                    localStorage.setItem('dogeCoinOwned',dogeCoin.numberOwned);
-                    localStorage.setItem('dogeCoinCost',dogeCoin.cost);
-                    localStorage.setItem('dogeCoinPerSecond',dogeCoin.rps);
-                    localStorage.setItem('elonMuskOwned',elonMuske.numberOwned);
-                    localStorage.setItem('elonMuskCost',elonMuske.cost);
-                    localStorage.setItem('elonMuskPerSecond',elonMuske.rps);
-                    localStorage.setItem('dogeCatOwned',dogeCat.numberOwned);
-                    localStorage.setItem('dogeCatCost',dogeCat.cost);
-                    localStorage.setItem('dogeCatPerSecond',dogeCat.rps);
-                    localStorage.setItem('bitCoinFarmOwned',bitCoin.numberOwned);
-                    localStorage.setItem('bitCoinFarmCost',bitCoin.cost);
-                    localStorage.setItem('bitCoinFarmAmp',bitCoin.amp);
-                    localStorage.setItem('gamingMousOwned',gamingMouse.numberOwned);
-                    localStorage.setItem('gamingMouseCost',gamingMouse.cost);
-                    localStorage.setItem('gamingMouseAmp',gamingMouse.amp);
-                    localStorage.setItem('gamingChairOwned',gamingChair.numberOwned);
-                    localStorage.setItem('gamingChairCost',gamingChair.cost);
-                    localStorage.setItem('gamingChairAmp',gamingChair.amp);
-                    localStorage.setItem('gamingAirOwned',gamingAir.numberOwned);
-                    localStorage.setItem('gamingAirCost',gamingAir.cost);
-                    localStorage.setItem('gamingAirAmp',gamingAir.amp);
-                    localStorage.setItem('clickerOwned',clicks.numberOwned);
-                    localStorage.setItem('clickerCost',clicks.cost);
-                    localStorage.setItem('clickerRps',clicks.rps);
-                    localStorage.setItem('ownedDogeOwned',ownDoge.numberOwned);
-                    localStorage.setItem('ownedDogeCost',ownDoge.cost);
+                    localStorage.setItem('loaferCost', microSD.cost);
+                    localStorage.setItem('loaferPerSecond', microSD.rps);
+                    localStorage.setItem('dogeCoinOwned', dogeCoin.numberOwned);
+                    localStorage.setItem('dogeCoinCost', dogeCoin.cost);
+                    localStorage.setItem('dogeCoinPerSecond', dogeCoin.rps);
+                    localStorage.setItem('elonMuskOwned', elonMuske.numberOwned);
+                    localStorage.setItem('elonMuskCost', elonMuske.cost);
+                    localStorage.setItem('elonMuskPerSecond', elonMuske.rps);
+                    localStorage.setItem('dogeCatOwned', dogeCat.numberOwned);
+                    localStorage.setItem('dogeCatCost', dogeCat.cost);
+                    localStorage.setItem('dogeCatPerSecond', dogeCat.rps);
+                    localStorage.setItem('bitCoinFarmOwned', bitCoin.numberOwned);
+                    localStorage.setItem('bitCoinFarmCost', bitCoin.cost);
+                    localStorage.setItem('bitCoinFarmAmp', bitCoin.amp);
+                    localStorage.setItem('gamingMousOwned', gamingMouse.numberOwned);
+                    localStorage.setItem('gamingMouseCost', gamingMouse.cost);
+                    localStorage.setItem('gamingMouseAmp', gamingMouse.amp);
+                    localStorage.setItem('gamingChairOwned', gamingChair.numberOwned);
+                    localStorage.setItem('gamingChairCost', gamingChair.cost);
+                    localStorage.setItem('gamingChairAmp', gamingChair.amp);
+                    localStorage.setItem('gamingAirOwned', gamingAir.numberOwned);
+                    localStorage.setItem('gamingAirCost', gamingAir.cost);
+                    localStorage.setItem('gamingAirAmp', gamingAir.amp);
+                    localStorage.setItem('clickerOwned', clicks.numberOwned);
+                    localStorage.setItem('clickerCost', clicks.cost);
+                    localStorage.setItem('clickerRps', clicks.rps);
+                    localStorage.setItem('ownedDogeOwned', ownDoge.numberOwned);
+                    localStorage.setItem('ownedDogeCost', ownDoge.cost);
 
                 } else {
                     // Sorry! No Web Storage support..
@@ -340,7 +340,7 @@
                     ownDoge.numberOwned = ownDoge.numberOwned + 1;
                     $('#doge-count').text("Owned: " + ownDoge.numberOwned);
                 }
-0
+
             }
 
 
@@ -376,15 +376,15 @@
             function purchasegamingMouse() {
                 gamingMouse.cost = Math.ceil(gamingMouse.basePrice * Math.pow(1.1, gamingMouse.numberOwned));
                 // increase the new cost by 10%
-                if (loaf >=  gamingMouse.cost) {
-                    loaf = loaf -  gamingMouse.cost;
+                if (loaf >= gamingMouse.cost) {
+                    loaf = loaf - gamingMouse.cost;
 
                     loafPerSecond = loafPerSecond * 1.25;
                     $('#loafPerSecond').text("LOAF per second: " + loafPerSecond + " loafe");
                     gamingMouse.numberOwned = gamingMouse.numberOwned + 1;
                     $('#gamingMouse-count').text("Owned: " + gamingMouse.numberOwned);
                     gamingMouse.cost = Math.ceil(gamingMouse.basePrice * Math.pow(1.1, gamingMouse.numberOwned));
-                    $('#gamingMouse-cost').text("Cost: " +  gamingMouse.cost);
+                    $('#gamingMouse-cost').text("Cost: " + gamingMouse.cost);
                 }
             }
             function purchasedogeCat() {
@@ -478,7 +478,7 @@
                     $("#microSD-count").text("Owned: " + microSD.numberOwned); // Update the text based on the updated numberOwned property
 
                     // Now we'll calculate the cost of the next microsd
-                     microSD.cost = Math.ceil(microSD.basePrice * Math.pow(1.1, microSD.numberOwned));
+                    microSD.cost = Math.ceil(microSD.basePrice * Math.pow(1.1, microSD.numberOwned));
                     $('#microSD-cost').text("Cost: " + microSD.cost);
                 }
             }
@@ -491,7 +491,7 @@
                     If you chose a number different than 1000 above for your setInterval timer, you'll have to divide the loafPerSecond value before adding it to the loaf.
                     For example, if you chose 250, update the loaf variable by adding one fourth of the loafPerSecond value.
                 */
-                loaf =  loaf + loafPerSecond ;
+                loaf = loaf + loafPerSecond;
                 // update the text that displays the loaf available
                 $("#loaf-amount").text("LOAF: " + Math.floor(loaf) + " loafe");
             }

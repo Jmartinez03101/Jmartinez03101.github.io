@@ -16,11 +16,26 @@ var level01 = function (window) {
             "number": 1,
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY },
-                { "type": "sawblade", "x": 600, "y": groundY },
-                { "type": "sawblade", "x": 900, "y": groundY },
+                { "type": "sawblade", "x": 400, "y": 400 },
+                { "type": "smalldoge", "x": 600, "y": groundY },
+                { "type": "enemy", "x": 900, "y": groundY },
             ]
         };
+        for(i = 0; i < levelData.gameItems.length; i++){
+            var firstGameItemObject = levelData.gameItems.type[0];
+            var firstType = firstGameItemObject;
+            var firstX = sawBladeHitZone.x;
+            var secondX = sawBladeHitZone.y;
+            if (firstType === "sawblade"){
+                createSawBlade(firstX, secondX);
+            }
+         
+            
+
+            createDoge(x, y);
+            createEnemy(x, y);
+
+        }
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
         game.setDebugMode(false);
@@ -40,9 +55,9 @@ var level01 = function (window) {
             obstacleImage.x = -25;
             obstacleImage.y = -25;
         }
-        createSawBlade(400, 300);
-        createSawBlade(800, 350);
-        createSawBlade(1200, 250);
+        // createSawBlade(400, 300);
+        // createSawBlade(800, 350);
+        // createSawBlade(1200, 250);
         function createDoge(x, y) {
             var hitZoneSize = 25;
             var damageFromObstacle = 10;
