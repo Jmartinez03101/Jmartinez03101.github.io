@@ -36,7 +36,7 @@ To push to GitHub, enter the following commands in bash:
 ```
 git add -A
 git commit -m "saving data shapes"
-git push
+git push  
 ```
 
 ## Project Grading
