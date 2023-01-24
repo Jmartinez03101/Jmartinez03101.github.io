@@ -57,14 +57,13 @@
 			/////////////////// HELPER FUNCTIONS ///////////////////////////////
 			//////////////////////////////////////////////////////////////////
 			function updateColor(){
-				$("#box").css('#background-color', rgbString);
+				$("#box").css('background-color', rgbString);
 			}
 			function changeColor(){
 				var r = Math.floor(Math.random() * 255);
 				var g = Math.floor(Math.random() * 255);
 				var b = Math.floor(Math.random() * 255);
-				var rgbString = "rgb(" + r +  ', ' + g + ", " + b +  ");";
-				
+				rgbString = "rgb(" + r +  ', ' + g + ", " + b +  ")";
 				console.log(rgbString);
 			}
             function increasePoints(){
