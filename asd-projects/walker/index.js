@@ -37,9 +37,14 @@ function runProgram() {
   // Game Item Objects
   var walker1pos = positionX1 + positionY1;
   var walker2pos = positionX2 + positionY2;
-  
-
-
+  //colors
+  var red = 'rgb(255, 0, 0)';
+  var teal= 'rgb(0, 128, 128)';
+  var yellow = 'rgb(128, 128, 0)';
+//score
+var score = 0;
+var p1Score = 0;
+ var p2Score = 0;
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown1);
@@ -65,6 +70,7 @@ function runProgram() {
     borderLimit1();
     borderLimit2();
     setTimeout(tag, 2000);
+    winner();
   }
 
   /* 
@@ -154,22 +160,28 @@ function runProgram() {
   }
 
   function tag(){
-    if(positionX1 === positionX2, positionY1 === positionY2 ){
+    if(positionX1 + positionY1 === positionY2 + positionX2 ){
       // positionX1 = 1450;
       // positionY1 = 680;
-      
+      console.log(11);
       // positionX2 = 0;
       // positionY2 = 0;
-      if ( $("#walker1").css('background-color') === 'rgb(255, 0, 0)'){
-        $("#walker2").css('background-color', 'rgb(255, 0, 0)');
-        $("#walker1").css('background-color', rgb(0, 128, 128));
+
+      if ( $("#walker1").css('background-color') === red){
+        $("#walker2").css('background-color', red);
+        $("#walker1").css('background-color', teal);
         console.log('walker1 turns 2 to red');
         console.log($("#walker1").css('background-color'));
+        p1Score = p1Score +1;
+        $( "#player1Score" ).text('P1 Score:' + p1Score);
       }
-      if ( $("#walker2").css('background-color') === 'rgb(255, 0, 0)'){
+      else if ( $("#walker2").css('background-color') === red){
         console.log('walker2 turns 1 to red');
-        $("#walker2").css('background-color', 'rgb(128,128,0)');
-        $("#walker1").css('background-color', 'rgb(255, 0, 0)');
+        $("#walker2").css('background-color', yellow);
+        $("#walker1").css('background-color', red);
+        p2Score = p2Score +1;
+        $( "#player2Score" ).text('P2 Score:' + p2Score);
+
       }
     }
   }
@@ -189,7 +201,14 @@ function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
+  function winner() {
+    if (p1Score >= 5){
+      alert('GAME OVER!');
+    }
+    if (p2Score >= 5){
+      alert('GAME OVER!');
+    }
+  }
 
   function endGame() {
     // stop the interval timer

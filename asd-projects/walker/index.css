@@ -31,4 +31,20 @@ body {
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
   left:1450px;
   top:680px;
+  text-align: center;
+}
+#player1Score {
+  color: beige;
+  position: absolute;
+  left: 1300px;
+}
+#player2Score{
+  color: beige;
+  position: absolute;
+  left: 50px;
+}
+.pnum{
+  position: absolute;
+  left: 15px;
+  top:-10px;
 }
