@@ -1,0 +1,34 @@
+User Story / Gameplay
+Describe the gameplay
+    users will bat a ball back and forth while trying to block it from going past themselves and earn 15 points to win with a timer
+What are the conditions when the game begins?
+    The ball will start in the middle and randomly get tossed to one side.
+Does the game have an end? If so, what are the conditions for when it ends?
+    whenever one player reaches 15, but they have to be 2 points ahead (like in volleyball)
+What ifs will there be?
+    if ball is hit with board it bounces, if ball goes off left or goes off right a person gets a point, if it hits top or bottom it bounces, if score is 15 game over, if timer hits 0 game over and winner announced
+Visual Game Components:
+What are the visual game components? For example, in Bouncing Box, the game components were the board and the box.
+middle line, score, timer, two paddles or boars for the player, and a ball
+Which will be static? (the board)
+    the borders
+Which will be animated? (the box)
+    the ball and the paddles that hit the ball controlled by the players
+What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
+    timer, position of paddle and ball, speed will be constant (maybe depends if i want to be mean)
+Events / Logic
+What events will occur in this game? (timer events, keyboard events, clicking events?)
+    keyboard register events. time evets, number comparison events(for score), and events to register when the ball hits the paddle
+How do those events affect the data of the program?
+    they change the current varaible of the timer and score and position of the objects
+For each "event", write out the high-level logic of what will happen. It is better (and tricky) to be as specific as you can while remaining high-level!
+    when w or s is pressed the paddle will move up or down
+    when ball hits paddle it goes in the opposite direction
+    when balll leaves area point is awarded
+    when score is reached game ends
+    when timer is done game ends
+For example: in bouncing box, when the box is clicked:
+
+The speed is increased
+The point total goes up by 1 and is displayed on the box
+The position of the box is reset to 0
