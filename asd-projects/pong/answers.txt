@@ -6,7 +6,7 @@ What are the conditions when the game begins?
 Does the game have an end? If so, what are the conditions for when it ends?
     whenever one player reaches 15, but they have to be 2 points ahead (like in volleyball)
 What ifs will there be?
-    if ball is hit with board it bounces, if ball goes off left or goes off right a person gets a point, if it hits top or bottom it bounces, if score is 15 game over, if timer hits 0 game over and winner announced
+    if paddle exceeds board height or min stop paddle, if ball is hit with board it bounces, if ball goes off left or goes off right a person gets a point, if it hits top or bottom it bounces, if score is 15 game over, if timer hits 0 game over and winner announced
 Visual Game Components:
 What are the visual game components? For example, in Bouncing Box, the game components were the board and the box.
 middle line, score, timer, two paddles or boars for the player, and a ball
@@ -15,10 +15,10 @@ Which will be static? (the board)
 Which will be animated? (the box)
     the ball and the paddles that hit the ball controlled by the players
 What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
-    timer, position of paddle and ball, speed will be constant (maybe depends if i want to be mean)
+score(amount to win, current amount), balls( speedx, speedy, width, height, positionx, positiony), paddle(positionx, positiony, speedy, width, height)
 Events / Logic
 What events will occur in this game? (timer events, keyboard events, clicking events?)
-    keyboard register events. time evets, number comparison events(for score), and events to register when the ball hits the paddle
+    w(left paddle up), s(left paddle down), ^(right paddle up), down arrow(right paddle down)
 How do those events affect the data of the program?
     they change the current varaible of the timer and score and position of the objects
 For each "event", write out the high-level logic of what will happen. It is better (and tricky) to be as specific as you can while remaining high-level!
