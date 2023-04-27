@@ -34,7 +34,7 @@ async function quickSort(array, left, right){
         if (left < (index - 1)){
             await quickSort(array, left, index - 1);
         }
-        if (index > index){
+        if (index < right){
             await quickSort(array, index, right);
         }
     }
